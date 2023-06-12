@@ -124,3 +124,22 @@ a {
 .main-content p {
     width: 200px;
 }
+
+.quote {
+    background-color: #E5E7EB;
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-quote {
+    font-size: 36px;
+    font-style: italic;
+    color: #1F2937;
+    font-weight: 300;
+}
+
+.name {
+    align-self: flex-end;
+}
