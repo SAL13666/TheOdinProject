@@ -143,6 +143,8 @@ a {
 
 .name {
     align-self: flex-end;
+    font-weight: 900;
+    font-size: 18px;
 }
 
 
