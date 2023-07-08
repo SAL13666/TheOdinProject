@@ -1,0 +1,58 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    color: #00ff00;
+}
+
+.container {
+    width: 700px;
+    margin: auto;
+}
+
+.header {
+    font-family: 'Games', sans-serif;
+    font-size: 30px;
+}
+
+.content .container {
+    text-align: center;
+}
+
+.content .container h2 {
+    font-size: 28px;
+}
+
+.content .container p {
+    font-weight: bold;
+}
+
+.content .container .score {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin: 100px 0px;
+}
+
+.content .container .score h3 {
+    font-size: 70px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.option {
+    margin-top: 100px;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+}
+
+.option > img {
+    width: 150px;
+    color: lime;
+    transition: 0.3ms;
+}
+
+.option > img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
