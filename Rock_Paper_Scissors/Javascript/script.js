@@ -1,8 +1,9 @@
 let Options = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
-    return Options[Math.floor(Math.random() * 3)];
+    return Math.floor(Math.random() * 3);
 }
+
 
 function playRound(playerSelection, computerSelection) {
 
@@ -30,33 +31,52 @@ function playRound(playerSelection, computerSelection) {
         console.log(`You Lose ${computerSelection} beats ${playerSelection}`);
         return 0;
     }
-
 }
 
+let computerScore = 0;
+let playerScore = 0;
+let butns = document.querySelectorAll("img");
 function game() {
-    let computerScore = 0;
-    let playerScore = 0;
     let playerSelection;
-    let computerSelection;
+    butns.forEach(function(butn) {
+        butn.addEventListener("click", function (e) {
+            playerSelection = Options[e.target.id];
+            let computerSelection = getComputerChoice();
+            document.querySelector(".player-score h3").innerHTML = e.target.outerHTML;
+            document.querySelector(".computer-score h3").innerHTML = document.getElementById(computerSelection).outerHTML;
+            if(playRound(playerSelection,Options[computerSelection]) === 1)
+            {
+                playerScore++;
+                document.querySelector(".player-score p").textContent = `Player:  ${playerScore}`;
+            } else if (playRound(playerSelection,Options[computerSelection]) === 0)
+            {
+                computerScore++;
+                document.querySelector(".computer-score p").textContent = `Computer: ${computerScore}`;
+            }
+            if (computerScore >= 5 || playerScore >= 5)
+            {
+                if(computerScore > playerScore)
+                {
+                    document.querySelector(".result .result-content h2").textContent = "You Lose";
+                }
+                else {
+                    document.querySelector(".result .result-content h2").textContent = "You Won";
+                }
+                document.getElementsByClassName("result")[0].style = "display:flex;";
+                document.querySelector(".result .result-content button").addEventListener("click", function () {
+                    playerScore = 0;
+                    computerScore = 0;
+                    document.querySelector(".player-score p").textContent = `Player:  ${playerScore}`;
+                    document.querySelector(".computer-score p").textContent = `Computer: ${computerScore}`;
+                    document.getElementsByClassName("result")[0].style = "display:none;";
+                }) 
+            }
+        })
+    });
 
-    while(computerScore <= 5 || playerScore <= 5) {
-        computerSelection = getComputerChoice();
-        playerSelection = prompt("Enter Your choice");
-        if(playRound(playerSelection, computerSelection) === 1)
-        {
-            playerScore++;
-        } else if(playRound(playerSelection, computerSelection) === 0) {
-            computerScore++;
-        }
-        if(playerScore === 5) {
-            console.log("congrats you won the game");
-            return;
-        } else if (computerScore === 5) {
-            console.log("you lost the game");
-            return;
-        }
-    }
 }
+
+
+
 
 game();
-
