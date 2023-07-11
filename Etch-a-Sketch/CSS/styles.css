@@ -29,3 +29,22 @@ header {
     border: 1px solid black;
     height: 100%;
 }
+.range {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+}
+.range input {
+    width: 500px;
+    cursor: ew-resize;
+}
+
+.range label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
