@@ -1,0 +1,31 @@
+body {
+    background-color: #b7131c;
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    text-align: center;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+}
+.container {
+    background-color: white;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: grid;
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(16,1fr);
+}
+
+.container div {
+    width: 100%;
+    background-color: white;
+    border: 1px solid black;
+    height: 100%;
+}
