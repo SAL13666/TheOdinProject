@@ -48,3 +48,34 @@ header {
     font-size: 25px;
     font-weight: bold;
 }
+
+.pen-color {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    width: 100px;
+    height: 30px;
+    overflow: hidden;
+}
+
+
+.pen {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 150px;
+    position: absolute;
+    bottom: 70px;
+    left: 30px;
+}
+
+.pen-color input {
+    width: 200%;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 300%;
+}

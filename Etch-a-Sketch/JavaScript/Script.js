@@ -1,15 +1,20 @@
 let grid = document.querySelector(".container");
 let range = document.querySelector(".range input");
+let color = document.querySelector(".pen-color input").value;
 
 for(let i = 0; i < 16 * 16; i++)
 {
     grid.appendChild(document.createElement("div"));
 }
 
+document.querySelector(".pen-color input").addEventListener("change", function() {
+    color = document.querySelector(".pen-color input").value;
+})
+
 function etch() {
     document.querySelectorAll(".container div").forEach(function(div) {
         div.addEventListener("click", function() {
-            div.style.cssText = "background-color: black;";
+            div.style.cssText = `background-color: ${color};`;
         })
     })    
 }
