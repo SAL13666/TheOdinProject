@@ -18,20 +18,20 @@ document.querySelector(".pen-color input").addEventListener("change", function()
     color = document.querySelector(".pen-color input").value;
 })
 
-function etch(color = false) {
-    if(color === false) {
-        document.querySelectorAll(".container div").forEach(function(div) {
-            div.addEventListener("click", function() {
-                div.style.cssText = `background-color: ${color};`;
-            })
+function etch() {
+    document.querySelectorAll(".container div").forEach(function(div) {
+        div.addEventListener("click", function() {
+            div.style.cssText = `background-color: ${color};`;
         })
-    } else if (color === true) {
-        document.querySelectorAll(".container div").forEach(function(div) {
-            div.addEventListener("click", function() {
-                div.style.cssText = `background-color: rgb(${Math.floor((Math.random() * 255) + 1)},${Math.floor((Math.random() * 255) + 1)}, ${Math.floor((Math.random() * 255) + 1)});`;
-            })
+    })
+}
+
+function etchWithColor() {
+    document.querySelectorAll(".container div").forEach(function(div) {
+        div.addEventListener("click", function() {
+            div.style.cssText = `background-color: rgb(${Math.floor((Math.random() * 255) + 1)},${Math.floor((Math.random() * 255) + 1)}, ${Math.floor((Math.random() * 255) + 1)});`;
         })
-    }
+    })
 }
 
 // need to change it from click to move
@@ -73,6 +73,7 @@ document.querySelector(".pen-mode button").addEventListener("click", function() 
     })
     document.querySelector(".pen-mode button").classList.toggle("active");
     color = document.querySelector(".pen-color input").value;
+    etch();
 });
 
 
@@ -81,5 +82,7 @@ document.querySelector(".rainbow-mode button").addEventListener("click",function
         removeActive(button, document.querySelector(".rainbow-mode button"));
     })
     document.querySelector(".rainbow-mode button").classList.toggle("active");
-    etch(true);
+    if (document.querySelector(".rainbow-mode button").classList.contains("active")) {
+        etchWithColor();
+    }
 })
