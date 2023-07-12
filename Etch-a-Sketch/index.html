@@ -11,14 +11,31 @@
     <header>Etch-a-Sketch</header>
     <div class="container">
     </div>
-    <div class="pen"><p>pen color</p></div>
+    <div class="settings">
         <div class="pen-color">
-            <input type="color" value="black">
+            <div class="color-input">
+                <input type="color" value="black">
+            </div>
+            <label>pen color</label>
+        </div>
+        <div class="pen-mode">
+            <button class="active">Pen Mode</button>
+        </div>
+        <div class="eraser">
+            <button>Erase Mode</button>
+        </div>
+        <div class="rainbow-mode">
+            <button>Rainbow Mode</button>
+        </div>
+        <div class="range">
+            <label>16X16</label>
+            <input type="range" name="range" min="1" max="100" step="1" value="16">
+        </div>
+        <div class="clear">
+            <button>Clear</button>
+        </div>
     </div>
-    <div class="range">
-        <label>16X16</label>
-        <input type="range" name="range" min="1" max="100" step="1" value="16">
-    </div>
+    
     <script src="JavaScript/Script.js"></script>
 </body>
 </html>

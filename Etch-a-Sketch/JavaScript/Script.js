@@ -2,6 +2,13 @@ let grid = document.querySelector(".container");
 let range = document.querySelector(".range input");
 let color = document.querySelector(".pen-color input").value;
 
+
+function removeActive(button, currentButton) {
+    if (button != currentButton) {
+        button.classList.remove("active");
+    }
+}
+
 for(let i = 0; i < 16 * 16; i++)
 {
     grid.appendChild(document.createElement("div"));
@@ -11,12 +18,20 @@ document.querySelector(".pen-color input").addEventListener("change", function()
     color = document.querySelector(".pen-color input").value;
 })
 
-function etch() {
-    document.querySelectorAll(".container div").forEach(function(div) {
-        div.addEventListener("click", function() {
-            div.style.cssText = `background-color: ${color};`;
+function etch(color = false) {
+    if(color === false) {
+        document.querySelectorAll(".container div").forEach(function(div) {
+            div.addEventListener("click", function() {
+                div.style.cssText = `background-color: ${color};`;
+            })
         })
-    })    
+    } else if (color === true) {
+        document.querySelectorAll(".container div").forEach(function(div) {
+            div.addEventListener("click", function() {
+                div.style.cssText = `background-color: rgb(${Math.floor((Math.random() * 255) + 1)},${Math.floor((Math.random() * 255) + 1)}, ${Math.floor((Math.random() * 255) + 1)});`;
+            })
+        })
+    }
 }
 
 // need to change it from click to move
@@ -35,3 +50,36 @@ range.addEventListener("click", function() {
 });
 
 etch();
+
+
+document.querySelector(".clear button").addEventListener("click", function() {
+    document.querySelectorAll(".container div").forEach(function(div) {
+        div.style.cssText = "background-color: white;";
+    })
+});
+
+
+document.querySelector(".eraser button").addEventListener("click", function() {
+    document.querySelectorAll(".settings button").forEach(function (button) {
+        removeActive(button, document.querySelector(".eraser button"));
+    })
+    document.querySelector(".eraser button").classList.toggle("active");
+    color = "white";
+});
+
+document.querySelector(".pen-mode button").addEventListener("click", function() {
+    document.querySelectorAll(".settings button").forEach(function (button) {
+        removeActive(button, document.querySelector(".pen-mode button"));
+    })
+    document.querySelector(".pen-mode button").classList.toggle("active");
+    color = document.querySelector(".pen-color input").value;
+});
+
+
+document.querySelector(".rainbow-mode button").addEventListener("click",function() {
+    document.querySelectorAll(".settings button").forEach(function (button) {
+        removeActive(button, document.querySelector(".rainbow-mode button"));
+    })
+    document.querySelector(".rainbow-mode button").classList.toggle("active");
+    etch(true);
+})

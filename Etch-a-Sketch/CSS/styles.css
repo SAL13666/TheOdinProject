@@ -1,15 +1,20 @@
 body {
-    background-color: #b7131c;
+    background-color: black;
     margin: 0px;
     padding: 0px;
 }
 
 header {
     text-align: center;
-    color: white;
+    color: purple;
     font-size: 70px;
     font-weight: bold;
 }
+
+.active {
+    background-color: purple;
+}
+
 .container {
     background-color: white;
     width: 600px;
@@ -31,51 +36,75 @@ header {
 }
 .range {
     position: absolute;
-    bottom: 40px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     color: white;
     text-align: center;
 }
 .range input {
-    width: 500px;
+    width: 100%;
     cursor: ew-resize;
 }
 
+
 .range label {
-    display: block;
     margin-bottom: 10px;
     font-size: 25px;
     font-weight: bold;
 }
 
-.pen-color {
+.settings {
+    border: 1px solid purple;
+    width: 300px;
+    height: 600px;
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.settings .pen-color {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.clear {
     position: absolute;
     bottom: 40px;
-    left: 50px;
-    width: 100px;
-    height: 30px;
-    overflow: hidden;
+    width: 50%;
 }
 
-
-.pen {
+button {
     color: white;
-    font-size: 20px;
+    background-color: transparent;
     font-weight: bold;
-    text-align: center;
-    width: 150px;
-    position: absolute;
-    bottom: 70px;
-    left: 30px;
+    border: 1px solid purple;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.pen-color input {
-    width: 200%;
-    outline: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 300%;
+.eraser {
+    width: 50%;
+}
+
+.pen-mode {
+    width: 50%;
+}
+
+.rainbow-mode {
+    width: 50%;
+    
 }
