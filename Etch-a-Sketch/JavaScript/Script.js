@@ -50,6 +50,9 @@ range.addEventListener("click", function() {
         grid.appendChild(document.createElement("div"));
     }
     grid.style.cssText = `grid-template-columns: repeat(${gridLength},1fr); grid-template-rows: repeat(${gridLength},1fr);`
+    document.querySelectorAll(".container div").forEach(function(div) {
+        div.classList.add("border");
+    })
     etch();
 });
 
