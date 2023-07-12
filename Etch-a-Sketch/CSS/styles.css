@@ -31,9 +31,13 @@ header {
 .container div {
     width: 100%;
     background-color: white;
-    border: 1px solid black;
     height: 100%;
 }
+
+.border {
+    border: 1px solid black;
+}
+
 .range {
     position: absolute;
     bottom: 100px;
@@ -107,4 +111,8 @@ button {
 .rainbow-mode {
     width: 50%;
     
+}
+
+.grid-mode {
+    width: 50%;
 }

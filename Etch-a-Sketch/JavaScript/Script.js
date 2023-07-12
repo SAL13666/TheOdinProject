@@ -4,7 +4,7 @@ let color = document.querySelector(".pen-color input").value;
 
 
 function removeActive(button, currentButton) {
-    if (button != currentButton) {
+    if (button != currentButton && !button.classList.contains("normal")) {
         button.classList.remove("active");
     }
 }
@@ -25,6 +25,10 @@ function etch() {
         })
     })
 }
+
+document.querySelectorAll(".container div").forEach(function(div) {
+        div.classList.add("border");
+})
 
 function etchWithColor() {
     document.querySelectorAll(".container div").forEach(function(div) {
@@ -65,6 +69,7 @@ document.querySelector(".eraser button").addEventListener("click", function() {
     })
     document.querySelector(".eraser button").classList.toggle("active");
     color = "white";
+    etch();
 });
 
 document.querySelector(".pen-mode button").addEventListener("click", function() {
@@ -84,5 +89,18 @@ document.querySelector(".rainbow-mode button").addEventListener("click",function
     document.querySelector(".rainbow-mode button").classList.toggle("active");
     if (document.querySelector(".rainbow-mode button").classList.contains("active")) {
         etchWithColor();
+    }
+})
+
+document.querySelector(".grid-mode button").addEventListener("click", function() {
+    document.querySelector(".grid-mode button").classList.toggle("active");
+    if(document.querySelector(".grid-mode button").classList.contains("active")) {
+        document.querySelectorAll(".container div").forEach(function(div) {
+            div.classList.add("border");
+        })
+    } else {
+        document.querySelectorAll(".container div").forEach(function(div) {
+            div.classList.remove("border")
+        })
     }
 })
