@@ -3,10 +3,15 @@
     src: url(../fonts/Norse-Bold.otf);
 }
 
+::selection {
+    background: purple;
+}
+
 body {
     margin: 0px;
     padding: 0px;
 }
+
 .background {
     position: fixed;
     right: 0;
@@ -24,7 +29,6 @@ body {
     z-index: -1;
 }
 
-
 header {
     display: flex;
     align-items: center;
@@ -32,7 +36,7 @@ header {
     top: 20px;
     padding-left: 20px;
     gap: 30px;
-    background-color: #313436c4;
+    background-color:rgba(0, 0, 0, 0.322);
     width: 20%;
 }
 
@@ -44,4 +48,81 @@ header h1 {
     font-size: 30px;
     color: white;
     font-family: norse, Arial, Helvetica, sans-serif;
+    cursor: default;
+}
+
+form {
+    font-family: 'Press Start 2P', cursive;
+    color: #6a6fd6;
+    background-color: rgba(0, 0, 0, 0.322);
+    border: 4px solid purple;
+    height: 75%;
+    width: 40%;
+    top: 20%;
+    position: absolute;
+    right: 20px;
+}
+
+form::after {
+    content: "X";
+    border: 4px solid purple;
+    border-radius: 6px;
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+form > * {
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: default;
+}
+
+form h2 {
+    font-size: 21px;
+    margin-bottom: 50px;
+}
+
+form label {
+    font-size: 15px;
+    display: block;
+
+}
+
+form input {
+    appearance: none;
+    border: 2px solid #6a6fd6;
+    outline: none;
+    margin: 20px 20px;
+    height: 30px;
+    background-color: transparent;
+    caret-color: purple;
+    color: #6a6fd6;
+    font-family: inherit;
+    width: 70%;
+    cursor: initial;
+}
+
+form input:invalid {
+    border-color: red;
+}
+
+form button {
+    display: block;
+    appearance: none;
+    border: #6a6fd6;
+    background-color: transparent;
+    border: 1px solid #6a6fd6;
+    width: 150px;
+    padding: 15px;
+    text-align: center;
+    margin: auto;
+    font-family: inherit;
+    color: purple;
+    cursor: pointer;
+    margin-bottom: 30px;
+    margin-top: 40px;
 }
