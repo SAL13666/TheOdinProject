@@ -6,7 +6,6 @@ let overlay = document.querySelector(".overlay");
 let pass = document.getElementById("password").addEventListener("blur", function () {
     pass = this.value;
 })
-let submit = document.querySelector("form > button");
 
 
 menuButton.addEventListener("click",function() {
@@ -38,13 +37,35 @@ document.getElementById("Re-enterPassword").addEventListener("blur",function () 
     }
 })
 
-submit.addEventListener("click", function(event) {
-    let valid = document.querySelectorAll("input").forEach(function(element) {
+document.getElementById("password").addEventListener("blur",function () {
+    if(this.value === "") {
+        this.classList.add("invalid");
+    }
+})
+
+document.getElementById("userName").addEventListener("blur",function () {
+    if(this.value === "") {
+        this.classList.add("invalid");
+    }
+})
+
+document.getElementById("mail").addEventListener("blur",function () {
+    if(this.value === "") {
+        this.classList.add("invalid");
+    }
+})
+
+
+document.forms[0].addEventListener("submit", function(event) {
+    let isValid = true;
+
+    document.querySelectorAll("form input").forEach(function(element){
         if(element.classList.contains("invalid")) {
-            return false;
+            isValid = false;
         }
     })
-    if(valid === false) {
+
+    if(!isValid) {
         event.preventDefault();
     }
 })
