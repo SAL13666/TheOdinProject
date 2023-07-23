@@ -106,9 +106,7 @@ form input {
     cursor: initial;
 }
 
-form input:invalid {
-    border-color: red;
-}
+
 
 form button {
     display: block;
@@ -136,4 +134,28 @@ form button {
     cursor: pointer;
     background-color: transparent;
     border: none;
+}
+
+.mode {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    right: 53%;
+    top: 0px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+
+.white-mode {
+    background-color: #e9822734;
+    color: white;
+    border-color: #e98227;
+}
+
+
+.invalid {
+    border-color: red;
 }
