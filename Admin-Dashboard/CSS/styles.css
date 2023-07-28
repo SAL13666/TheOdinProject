@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+svg {
+    width: 30px;
+    text-align: center;
+}
+
+img {
+    width: 35px;
+    border-radius: 50%;
+}
+
+button {
+    background-color: #1992d4;
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 10px;
+    width: 130px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+input[type = search] {
+    height: 20px;
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 30px;
+}
+
+header {
+    margin: 20px;
+}
+
+header .main-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+header .main-header .account {
+    display: grid;
+    grid-template-columns: repeat(2, 50px) 150px;
+    gap: 30px;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+
+header .main-header .account h2 {
+    font-size: 20px;
+}
+
+header .main-header .search {
+    display: grid;
+    grid-template-columns: 50px 5fr;
+    align-content: center;
+}
