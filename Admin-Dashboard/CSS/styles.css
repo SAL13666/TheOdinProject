@@ -8,8 +8,7 @@ body {
 }
 
 svg {
-    width: 30px;
-    text-align: center;
+    width: 25px;
 }
 
 img {
@@ -36,7 +35,7 @@ input[type = search] {
 }
 
 header {
-    margin: 20px;
+    padding: 20px;
 }
 
 header .main-header {
@@ -61,6 +60,7 @@ header .main-header .account h2 {
 
 header .main-header .search {
     display: grid;
-    grid-template-columns: 50px 5fr;
+    grid-template-columns: 30px 5fr;
     align-content: center;
+    justify-content: end;
 }
