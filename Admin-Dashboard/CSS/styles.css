@@ -1,10 +1,17 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: content-box;
 }
 
 body {
+    height: 100vh;
     font-family: 'Roboto', sans-serif;
+    background-color: #e2e8f0;
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: 150px 1fr;
+
 }
 
 svg {
@@ -20,15 +27,16 @@ button {
     background-color: #1992d4;
     color: white;
     border: none;
-    font-size: 18px;
-    padding: 10px;
-    width: 130px;
-    border-radius: 30px;
+    font-size: 15px;
+    width: 90px;
+    border-radius: 20px;
+    height: 30px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 input[type = search] {
-    height: 20px;
+    height: 25px;
     background-color: #e2e8f0;
     border: none;
     border-radius: 30px;
@@ -36,6 +44,10 @@ input[type = search] {
 
 header {
     padding: 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 0px 0px, rgba(0, 0, 0, 0.09) 0px 1px 1px, rgba(0, 0, 0, 0.09) 0px 1px 1px, rgba(0, 0, 0, 0.09) 0px 1px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
 }
 
 header .main-header {
@@ -63,4 +75,77 @@ header .main-header .search {
     grid-template-columns: 30px 5fr;
     align-content: center;
     justify-content: end;
+}
+
+header nav {
+    display: grid;
+    margin-top: 20px;
+    gap: 30px;
+    grid-template-columns: 50px 1fr 1fr;
+}
+
+nav img {
+    width: 50px;
+}
+
+nav .main-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    gap: 30px;
+    justify-content: center;
+}
+
+section {
+    height: 100vh;
+}
+
+aside {
+    background-color: #1992d4;
+    grid-row: 1 / -1;
+    color: white;
+    padding: 20px;
+}
+
+aside .logo {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    height: 50px;
+    align-items: center;
+    gap: 10px;
+}
+
+aside .logo svg {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(25deg) brightness(101%) contrast(103%);
+    width: 50px;
+    text-align: center;
+}
+
+aside h1 {
+    font-size: 30px;
+}
+
+aside nav {
+    margin-top: 60px;
+    width: 100%;
+}
+
+aside nav .link {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    align-items: center;
+    margin-bottom: 30px;
+    
+}
+
+aside nav svg {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(25deg) brightness(101%) contrast(103%);
+    width: 25px;
+}
+
+aside h3 {
+    color: white;
+}
+
+aside nav .other-links {
+    margin-top: 100px;
 }
