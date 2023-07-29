@@ -33,6 +33,7 @@ button {
     height: 30px;
     cursor: pointer;
     font-weight: bold;
+    
 }
 
 input[type = search] {
