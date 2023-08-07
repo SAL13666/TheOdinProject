@@ -1,0 +1,41 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: 'Righteous', cursive;
+    height: 100vh;
+    background-color: #181a1b;
+}
+
+.game {
+    position: relative;
+    top: 50%;
+    width: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #47E10C;
+    text-align: center;
+    padding: 20px;
+    transition-duration: 500ms;
+    transition-property: top;
+    transition-timing-function: ease;
+
+}
+
+.game h1 {
+    font-size: 65px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.game button {
+    color: #47E10C;
+    background-color: transparent;
+    font-size: 20px;
+    border: 1px solid #47E10C;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
