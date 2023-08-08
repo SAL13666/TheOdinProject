@@ -1,6 +1,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 
 .game {
     position: relative;
-    top: 50%;
+    top: 60%;
     width: 500px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -21,7 +22,7 @@ body {
     transition-duration: 500ms;
     transition-property: top;
     transition-timing-function: ease;
-
+    margin-bottom: 100px;
 }
 
 .game h1 {
@@ -38,4 +39,53 @@ body {
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.game .game-option {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+#Ai-menu {
+    position: static;
+    top: 40px;
+}
+
+#Ai-menu ul {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+#Ai-menu ul li {
+    padding: 10px;
+    border: 1px solid #47E10C;
+    cursor: pointer;
+}
+
+
+.game-board {
+    position: relative;
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 150px);
+    margin: auto;
+}
+
+.game-board div {
+    border: 1px solid #47E10C;
+    cursor: pointer;
+    font-family: 'Games', sans-serif;
+    color: #47E10C;
+    font-size: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
