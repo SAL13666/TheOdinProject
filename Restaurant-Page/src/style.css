@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    background-color: black;
+    color: white;
+}
+
+header {
+    margin-bottom: 100px;
+}
+
+header ul,
+h1 {
+    width: 50%;
+    border-bottom: 1px solid black;
+    list-style: none;
+    padding: 0px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+h1 {
+    border: none;
+    display: block;
+    text-align: center;
+    font-size: 50px;
+}
+
+header ul li {
+    font-size: 30px;
+    padding: 50px;
+    cursor: pointer;
+}
+
+header ul li:hover {
+    border-bottom: 1px solid red;
+}
+
