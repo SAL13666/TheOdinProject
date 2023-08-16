@@ -1,7 +1,7 @@
 import './style.css';
 import { renderHome } from './home';
 import { renderMenu } from './menu';
-
+import { renderAbout } from './about';
 let content = document.getElementById("content");
 let header = document.createElement("header");
     header.innerHTML = `
@@ -16,7 +16,7 @@ let renderHeader = function () {
     content.appendChild(header);
 }
 renderHeader();
-
+content.appendChild(renderHome());
 
     document.getElementsByClassName("home")[0].addEventListener("click", () => {
         content.innerHTML = "";
@@ -28,4 +28,10 @@ renderHeader();
         content.innerHTML = "";
         renderHeader();
         content.appendChild(renderMenu());
+    })
+
+        document.getElementsByClassName("about")[0].addEventListener("click", () => {
+        content.innerHTML = "";
+        renderHeader();
+        content.appendChild(renderAbout());
     })
