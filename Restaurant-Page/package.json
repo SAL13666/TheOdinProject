@@ -1,6 +1,8 @@
 {
   "devDependencies": {
     "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^4.2.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
@@ -55,6 +57,7 @@
     "terser-webpack-plugin": "^5.3.9",
     "update-browserslist-db": "^1.0.11",
     "uri-js": "^4.4.1",
+    "url-loader": "^4.1.1",
     "watchpack": "^2.4.0",
     "webpack-sources": "^3.2.3"
   },

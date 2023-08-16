@@ -1,5 +1,6 @@
 import './style.css';
 import { renderHome } from './home';
+import { renderMenu } from './menu';
 
 let content = document.getElementById("content");
 let header = document.createElement("header");
@@ -15,10 +16,16 @@ let renderHeader = function () {
     content.appendChild(header);
 }
 renderHeader();
-;
+
 
     document.getElementsByClassName("home")[0].addEventListener("click", () => {
         content.innerHTML = "";
         renderHeader();
         content.appendChild(renderHome());
+    })
+
+    document.getElementsByClassName("menu")[0].addEventListener("click", () => {
+        content.innerHTML = "";
+        renderHeader();
+        content.appendChild(renderMenu());
     })
