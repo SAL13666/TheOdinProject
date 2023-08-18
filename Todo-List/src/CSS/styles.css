@@ -26,10 +26,44 @@ header svg {
 }
 
 aside {
-    background-color: #f7f7f7;
+    background-color: #dddddd;
 }
 
 footer {
     background-color: #333333;
     grid-column: 1 / -1;
+}
+
+aside ul {
+    list-style: none;
+    margin: 30px 20px;
+    padding: 0;
+}
+
+aside ul li {
+    display: flex;
+    height: 40px;
+    padding-left: 30px;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    border: 1px solid #cccccc;
+}
+
+aside ul li:hover {
+    background-color: #cccccc;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #cccccc;
+}
+
+aside ul h2 {
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 30px;
+    border-bottom: 1px solid black;
+    padding-bottom: 25px;
 }
