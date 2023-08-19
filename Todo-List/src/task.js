@@ -1,3 +1,4 @@
+import { markBookAsRead } from "./domStuff"
 export class Task {
     constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;
@@ -40,6 +41,7 @@ export let renderTask = function(tasks) {
     }
     taskContainer.appendChild(newTask);
     });
+    markBookAsRead();
 }
 
 export let addNewTask = function() {
