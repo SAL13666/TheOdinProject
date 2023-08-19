@@ -99,3 +99,90 @@ main .container svg {
     font-size: 20px;
     cursor: pointer;
 }
+
+.tasks .task {
+    padding: 0px 10px;
+    display: flex;
+    cursor: pointer;
+    flex: 1;
+    justify-content: space-between;
+    border-bottom: 1px solid #F7F7F7;
+}
+
+.tasks .task:hover {
+    background-color: #F7F7F7;
+}
+
+.tasks .task .task-data {
+    font-size: 20px;
+}
+
+.tasks .task .task-data,
+.tasks .task .task-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.tasks .task .task-options svg {
+    font-size: 15px;
+}
+
+.tasks .task .task-options svg:hover {
+    transform: scale(130%);
+}
+
+form {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    background-color: #cccccc;
+    padding: 20px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.219);
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    
+}
+
+form label {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+form label span {
+    color: rgb(173, 11, 11);
+}
+
+form input,
+form textarea {
+    background-color: transparent;
+    outline: 1px solid black;
+}
+
+form select {
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+
+form .form-options {
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+
+form button {
+    background-color: #dddddd;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
