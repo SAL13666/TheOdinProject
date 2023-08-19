@@ -1,11 +1,12 @@
 export class Task {
-    constructor(title, description, dueDate, priority, status = 0) {
+    constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
         this.status = status;
         this.notes = "";
+        this.id = id;
     }
     addNote (note) {
         this.notes = note;
@@ -20,6 +21,7 @@ export let renderTask = function(tasks) {
     tasks.forEach(task => {
     let newTask = document.createElement("div");
     newTask.classList.add("task");
+    newTask.setAttribute("data-id", task.id)
     newTask.innerHTML = `
                     <div class="task-data">
                     <i class="fa-regular fa-circle"></i>
@@ -32,6 +34,10 @@ export let renderTask = function(tasks) {
                     <i class="fa-solid fa-info"></i>
                 </div>
     `;
+    if(task.status === 1) {
+        newTask.querySelector(".task-data i").classList.remove("fa-regular");
+        newTask.querySelector(".task-data i").classList.add("fa-solid");
+    }
     taskContainer.appendChild(newTask);
     });
 }
@@ -76,7 +82,7 @@ export let addNewTask = function() {
         let description = document.querySelector("textarea").value;
         let date = document.forms[0].date.value;
         let priority = document.forms[0].priority.value;
-        let newTask = new Task(title,description,date,priority);
+        let newTask = new Task(title, description, date, priority, tasks.length + 1);
         tasks.push(newTask);
         renderTask(tasks);
     })
