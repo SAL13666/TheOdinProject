@@ -12,6 +12,8 @@ export class Task {
     }
 }
 
+export let tasks = [];
+
 export let renderTask = function(tasks) {
     let taskContainer = document.querySelector("main .container .tasks");
     taskContainer.innerHTML = "";
@@ -34,3 +36,50 @@ export let renderTask = function(tasks) {
     });
 }
 
+export let addNewTask = function() {
+        document.querySelector("main .add-task .add").addEventListener("click", () => {
+        let addForm = document.createElement("form");
+        let overlay = document.createElement("div");
+        overlay.classList.add("overlay");
+        addForm.classList.add("add-task");
+        addForm.innerHTML = `
+                        <h3>add Task</h3>
+                <label for="title">Title<span>*</span></label>
+                <input type="text" id="title" required>
+            
+                <label for="description">Description</label>
+                <textarea name="Description" id="" cols="36" rows="3" id="description"></textarea>
+            
+                <label for="date">Due Date</label>
+                <input type="date" name="date" id="date">
+            
+                <label for="priority">Priority</label>
+                <select name="" id="priority">
+                    <option value="" disabled selected>HOW Important is This Task?</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <div class="form-options">
+                    <button type="button">Cancel</button>
+                    <button type="submit">Add</button>
+                </div>`
+        document.querySelector("main").appendChild(addForm);
+        document.body.appendChild(overlay);
+        document.getElementsByTagName("button")[0].addEventListener("click", ()=> {
+        document.forms[0].remove();
+        document.querySelector(".overlay").remove(); 
+    })
+    document.forms[0].addEventListener("submit", e => {
+        e.preventDefault();
+        let title = document.forms[0].title.value;
+        let description = document.querySelector("textarea").value;
+        let date = document.forms[0].date.value;
+        let priority = document.forms[0].priority.value;
+        let newTask = new Task(title,description,date,priority);
+        tasks.push(newTask);
+        renderTask(tasks);
+    })
+    })
+
+}
