@@ -23,7 +23,12 @@ export let deleteTask = function() {
                 }
             })
             task.remove();
-            console.log(tasks);
+            upDateTheTaskCounter();
         })
     })
+}
+
+
+export function upDateTheTaskCounter() {
+    document.querySelector(".add-task h3 span").innerHTML = tasks.length;
 }

@@ -1,4 +1,4 @@
-import { markBookAsRead, deleteTask} from "./domStuff"
+import { markBookAsRead, deleteTask, upDateTheTaskCounter} from "./domStuff"
 export class Task {
     constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;
@@ -42,6 +42,7 @@ export let renderTask = function(tasks) {
     taskContainer.appendChild(newTask);
     });
     markBookAsRead();
+    upDateTheTaskCounter();
     deleteTask();
 }
 
