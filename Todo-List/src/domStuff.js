@@ -17,7 +17,11 @@ export let deleteTask = function() {
     document.querySelectorAll("main .container .tasks .task").forEach(task => {
         task.querySelector(".delete").addEventListener("click", () => {
             let id = task.getAttribute("data-id");
-            tasks.splice(id - 1, 1);
+            tasks.forEach((current,index) => {
+                if(current.id == id) {
+                    tasks.splice(index, 1);
+                }
+            })
             task.remove();
             console.log(tasks);
         })
