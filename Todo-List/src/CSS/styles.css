@@ -115,6 +115,7 @@ main .container svg {
 
 .tasks .task .task-data {
     font-size: 20px;
+    flex: 1;
 }
 
 .tasks .task .task-data,

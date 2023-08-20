@@ -1,4 +1,4 @@
-import { markBookAsRead } from "./domStuff"
+import { markBookAsRead, deleteTask} from "./domStuff"
 export class Task {
     constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;
@@ -30,9 +30,9 @@ export let renderTask = function(tasks) {
                 </div>
                 <div class="task-options">
                     <p>${task.dueDate}</p>
-                    <i class="fa-regular fa-pen-to-square"></i>
-                    <i class="fa-regular fa-trash-can"></i>
-                    <i class="fa-solid fa-info"></i>
+                    <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>
+                    <div class="delete"><i class="fa-regular fa-trash-can"></i></div>
+                    <div class="info"><i class="fa-solid fa-info"></i></div>
                 </div>
     `;
     if(task.status === 1) {
@@ -42,6 +42,7 @@ export let renderTask = function(tasks) {
     taskContainer.appendChild(newTask);
     });
     markBookAsRead();
+    deleteTask();
 }
 
 export let addNewTask = function() {
@@ -87,6 +88,8 @@ export let addNewTask = function() {
         let newTask = new Task(title, description, date, priority, tasks.length + 1);
         tasks.push(newTask);
         renderTask(tasks);
+        document.forms[0].remove();
+        document.querySelector(".overlay").remove(); 
     })
     })
 
