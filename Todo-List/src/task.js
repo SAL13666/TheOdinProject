@@ -38,6 +38,7 @@ export let renderTask = function(tasks) {
     if(task.status === 1) {
         newTask.querySelector(".task-data i").classList.remove("fa-regular");
         newTask.querySelector(".task-data i").classList.add("fa-solid");
+        newTask.querySelector(".task-data p").style.cssText = "text-decoration: line-through; color: rgba(0, 0, 0, 0.54);";
     }
     taskContainer.appendChild(newTask);
     });
