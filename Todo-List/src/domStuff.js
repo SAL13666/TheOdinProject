@@ -47,7 +47,7 @@ export let editTask = function() {
                 <textarea name="Description" id="" cols="36" rows="3" id="description">${tasks[id].description}</textarea>
                 
                 <label for="date">Due Date</label>
-                <input type="date" name="date" id="date" value="${tasks[id].date}">
+                <input type="date" name="date" id="date" value="${tasks[id].dueDate}">
                 
                 <label for="priority">Priority</label>
                 <select name="" id="priority" value="${tasks[id].priority}">
@@ -71,7 +71,7 @@ export let editTask = function() {
         e.preventDefault();
         tasks[id].title = document.forms[0].title.value;
         tasks[id].description = document.querySelector("textarea").value;
-        tasks[id].date = document.forms[0].date.value;
+        tasks[id].dueDate = document.forms[0].date.value;
         tasks[id].priority = document.forms[0].priority.value;
         renderTask(tasks);
         document.forms[0].remove();
