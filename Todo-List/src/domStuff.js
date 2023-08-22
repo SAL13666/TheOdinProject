@@ -42,28 +42,29 @@ export let editTask = function() {
                 <h3>edit Task</h3>
                 <label for="title">Title<span>*</span></label>
                 <input type="text" id="title" required value="${tasks[id].title}">
-            
+                
                 <label for="description">Description</label>
                 <textarea name="Description" id="" cols="36" rows="3" id="description">${tasks[id].description}</textarea>
-            
+                
                 <label for="date">Due Date</label>
                 <input type="date" name="date" id="date" value="${tasks[id].date}">
-            
+                
                 <label for="priority">Priority</label>
                 <select name="" id="priority" value="${tasks[id].priority}">
-                    <option value="" disabled selected>HOW Important is This Task?</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
+                <option value="" disabled selected>HOW Important is This Task?</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
                 </select>
                 <div class="form-options">
-                    <button type="button">Cancel</button>
-                    <button type="submit">Add</button>
+                <button type="button">Cancel</button>
+                <button type="submit">Add</button>
                 </div>`
-        document.querySelector("main").appendChild(addForm);
-        document.body.appendChild(overlay);
-        document.getElementsByTagName("button")[0].addEventListener("click", ()=> {
-        document.forms[0].remove();
+                addForm = pickPriority(addForm, id);
+                document.querySelector("main").appendChild(addForm);
+                document.body.appendChild(overlay);
+                document.getElementsByTagName("button")[0].addEventListener("click", ()=> {
+                    document.forms[0].remove();
         document.querySelector(".overlay").remove(); 
     })
     document.forms[0].addEventListener("submit", e => {

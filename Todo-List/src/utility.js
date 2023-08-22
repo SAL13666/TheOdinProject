@@ -1,11 +1,12 @@
-import { Tasks, tasks } from "./task";
+import {tasks} from "./task";
 export function pickPriority(task,id) {
     let prio = tasks[id].priority;
     if(prio === "low") {
-        console.log("low");
+        task.querySelectorAll("select option")[1].setAttribute("selected", "");
     } else if (prio === "medium") {
-        console.log("medium");
+        task.querySelectorAll("select option")[2].setAttribute("selected", "");
     } else if (prio === "high") {
-        console.log("high");
+        task.querySelectorAll("select option")[3].setAttribute("selected", "");
     }
+    return task;
 }
