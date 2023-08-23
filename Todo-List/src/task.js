@@ -1,4 +1,4 @@
-import { markBookAsRead, deleteTask, upDateTheTaskCounter, editTask} from "./domStuff"
+import { markBookAsRead, deleteTask, upDateTheTaskCounter, editTask} from "./task-options"
 export class Task {
     constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;

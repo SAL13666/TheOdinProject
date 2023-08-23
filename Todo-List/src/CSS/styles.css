@@ -167,6 +167,7 @@ form input,
 form textarea {
     background-color: transparent;
     outline: 1px solid black;
+    margin-bottom: 30px;
 }
 
 form select {
