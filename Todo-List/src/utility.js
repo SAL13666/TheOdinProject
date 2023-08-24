@@ -1,5 +1,5 @@
 import {tasks} from "./task";
-export function pickPriority(task,id) {
+export function pickPriority(tasks,task,id) {
     let prio = tasks[id].priority;
     if(prio === "low") {
         task.querySelectorAll("select option")[1].setAttribute("selected", "");

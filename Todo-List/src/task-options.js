@@ -1,6 +1,6 @@
-import { tasks, renderTask} from "./task";
+import {renderTask} from "./task";
 import { pickPriority } from "./utility";
-export let markBookAsRead = function() {
+export let markBookAsRead = function(tasks) {
     document.querySelectorAll("main .container .tasks .task").forEach(task => {
         task.querySelector(".task-data").addEventListener("click", () => {
             let id = task.getAttribute("data-id");
@@ -14,7 +14,7 @@ export let markBookAsRead = function() {
     })
 }
 
-export let deleteTask = function() {
+export let deleteTask = function(tasks) {
     document.querySelectorAll("main .container .tasks .task").forEach(task => {
         task.querySelector(".delete").addEventListener("click", () => {
             let id = task.getAttribute("data-id");
@@ -24,13 +24,13 @@ export let deleteTask = function() {
                 }
             })
             task.remove();
-            upDateTheTaskCounter();
+            upDateTheTaskCounter(tasks);
         })
     })
 }
 
 
-export let editTask = function() {
+export let editTask = function(tasks) {
     document.querySelectorAll("main .container .tasks .task").forEach(task => {
         task.querySelector(".edit").addEventListener("click", () => {
         let addForm = document.createElement("form");
@@ -60,7 +60,7 @@ export let editTask = function() {
                 <button type="button">Cancel</button>
                 <button type="submit">Add</button>
                 </div>`
-                addForm = pickPriority(addForm, id);
+                addForm = pickPriority(tasks,addForm, id);
                 document.querySelector("main").appendChild(addForm);
                 document.body.appendChild(overlay);
                 document.getElementsByTagName("button")[0].addEventListener("click", ()=> {
@@ -82,6 +82,6 @@ export let editTask = function() {
         })
 }
 
-export function upDateTheTaskCounter() {
+export function upDateTheTaskCounter(tasks) {
     document.querySelector(".add-task h3 span").innerHTML = tasks.length;
 }

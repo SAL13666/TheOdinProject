@@ -1,3 +1,4 @@
+import { addNewTask} from "./task";
 export let projects = [];
 class Project {
     constructor(name,id ,tasks = []) {
@@ -76,10 +77,12 @@ export let deleteProject = function() {
 export function renderPorjectTasks() {
     document.querySelectorAll("aside nav ul li").forEach(project => { 
         project.addEventListener("click", () => {
+            let id = project.getAttribute("data-id");
             document.querySelectorAll("aside nav ul li").forEach(li => { 
                 li.classList.remove("selected");
             });
             project.classList.add("selected");
+            addNewTask(projects[id].tasks);
         })
     });
 }

@@ -14,7 +14,7 @@ export class Task {
     }
 }
 
-export let tasks = [];
+//export let tasks = [];
 
 export let renderTask = function(tasks) {
     let taskContainer = document.querySelector("main .container .tasks");
@@ -41,13 +41,13 @@ export let renderTask = function(tasks) {
     }
     taskContainer.appendChild(newTask);
     });
-    markBookAsRead();
-    upDateTheTaskCounter();
-    deleteTask();
-    editTask();
+    markBookAsRead(tasks);
+    upDateTheTaskCounter(tasks);
+    deleteTask(tasks);
+    editTask(tasks);
 }
 
-export let addNewTask = function() {
+export let addNewTask = function(tasks) {
         document.querySelector("main .add-task .add").addEventListener("click", () => {
         let addForm = document.createElement("form");
         let overlay = document.createElement("div");
