@@ -40,7 +40,8 @@ aside ul {
     padding: 0;
 }
 
-aside ul li {
+aside ul li,
+.Add-Project {
     display: flex;
     height: 40px;
     padding-left: 30px;
@@ -49,11 +50,12 @@ aside ul li {
     font-size: 20px;
     margin-top: 20px;
     border: 1px solid #cccccc;
+    cursor: pointer;
 }
 
-aside ul li:hover {
+aside ul li:hover,
+.Add-Project:hover {
     background-color: #cccccc;
-    cursor: pointer;
 }
 
 .selected {
@@ -187,4 +189,18 @@ form button {
     padding: 15px;
     font-weight: bold;
     cursor: pointer;
+}
+
+
+.projects li {
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+.projects svg {
+    font-size: 15px;
+}
+
+.projects svg:hover {
+    transform: scale(130%);
 }

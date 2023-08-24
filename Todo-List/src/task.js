@@ -32,7 +32,6 @@ export let renderTask = function(tasks) {
                     <p>${task.dueDate}</p>
                     <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>
                     <div class="delete"><i class="fa-regular fa-trash-can"></i></div>
-                    <div class="info"><i class="fa-solid fa-info"></i></div>
                 </div>
     `;
     if(task.status === 1) {

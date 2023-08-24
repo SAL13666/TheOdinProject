@@ -45,8 +45,26 @@ export function renderPorjects() {
     projectContainer.innerHTML = "";
     projects.forEach(project => {
         let li = document.createElement("li");
-        li.innerText = project.name;
+        li.innerHTML = `
+            <p>${project.name}</p>
+            <div class="delete"><i class="fa-regular fa-trash-can"></i></div>
+        `;
         li.setAttribute("data-id", project.id);
         projectContainer.appendChild(li);
+        deleteProject();
+    })
+}
+
+export let deleteProject = function() {
+    document.querySelectorAll(".projects li").forEach(project => {
+        project.querySelector(".delete").addEventListener("click", () => {
+            let id = project.getAttribute("data-id");
+            projects.forEach((current,index) => {
+                if(current.id == id) {
+                    projects.splice(index, 1);
+                }
+            })
+            project.remove();
+        })
     })
 }
