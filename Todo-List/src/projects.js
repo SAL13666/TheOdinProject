@@ -41,10 +41,13 @@ export function addNewProject() {
 }
 
 export function renderPorjects() {
-    let projectContainer = document.querySelector(".projects ul");
-    projectContainer.innerHTML = "";
+    let projectContainer = document.querySelector("aside nav ul");
+    document.querySelectorAll("aside nav ul li.project").forEach(project => {
+        project.remove();
+    });
     projects.forEach(project => {
         let li = document.createElement("li");
+        li.classList.add("project");
         li.innerHTML = `
             <p>${project.name}</p>
             <div class="delete"><i class="fa-regular fa-trash-can"></i></div>
@@ -56,7 +59,7 @@ export function renderPorjects() {
 }
 
 export let deleteProject = function() {
-    document.querySelectorAll(".projects li").forEach(project => {
+    document.querySelectorAll("li.project").forEach(project => {
         project.querySelector(".delete").addEventListener("click", () => {
             let id = project.getAttribute("data-id");
             projects.forEach((current,index) => {

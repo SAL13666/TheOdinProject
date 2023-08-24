@@ -192,15 +192,15 @@ form button {
 }
 
 
-.projects li {
+.project {
     justify-content: space-between;
     padding: 0px 20px;
 }
 
-.projects svg {
+.project svg {
     font-size: 15px;
 }
 
-.projects svg:hover {
+.project svg:hover {
     transform: scale(130%);
 }
