@@ -54,6 +54,7 @@ export function renderPorjects() {
         `;
         li.setAttribute("data-id", project.id);
         projectContainer.appendChild(li);
+        renderPorjectTasks();
         deleteProject();
     })
 }
@@ -70,4 +71,15 @@ export let deleteProject = function() {
             project.remove();
         })
     })
+}
+
+export function renderPorjectTasks() {
+    document.querySelectorAll("aside nav ul li").forEach(project => { 
+        project.addEventListener("click", () => {
+            document.querySelectorAll("aside nav ul li").forEach(li => { 
+                li.classList.remove("selected");
+            });
+            project.classList.add("selected");
+        })
+    });
 }
