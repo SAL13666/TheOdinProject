@@ -6,6 +6,9 @@ class Project {
         this.tasks = tasks;
         this.id = id;
     }
+    set setId(newId) {
+        this.id = newId;
+    }
 }
 
 
@@ -38,7 +41,7 @@ export function addNewProject() {
         projects.push(newProject);
         renderPorjects();
     })
-    })
+})
 }
 
 export function renderPorjects() {
@@ -47,42 +50,52 @@ export function renderPorjects() {
         project.remove();
     });
     projects.forEach(project => {
-        let li = document.createElement("li");
-        li.classList.add("project");
-        li.innerHTML = `
+            let li = document.createElement("li");
+            li.classList.add("project");
+            li.innerHTML = `
             <p>${project.name}</p>
             <div class="delete"><i class="fa-regular fa-trash-can"></i></div>
-        `;
-        li.setAttribute("data-id", project.id);
-        projectContainer.appendChild(li);
-        renderPorjectTasks();
-        deleteProject();
-    })
-}
-
-export let deleteProject = function() {
-    document.querySelectorAll("li.project").forEach(project => {
-        project.querySelector(".delete").addEventListener("click", () => {
-            let id = project.getAttribute("data-id");
-            projects.forEach((current,index) => {
-                if(current.id == id) {
-                    projects.splice(index, 1);
-                }
-            })
-            project.remove();
+            `;
+            li.setAttribute("data-id", project.id);
+            projectContainer.appendChild(li);
         })
-    })
-}
-
-export function renderPorjectTasks() {
-    document.querySelectorAll("aside nav ul li").forEach(project => { 
-        project.addEventListener("click", () => {
-            let id = project.getAttribute("data-id");
+        deleteProject();
+        renderPorjectTasks();
+    }
+    
+    export let deleteProject = function() {
+        document.querySelectorAll("li.project").forEach(project => {
+            project.querySelector(".delete").addEventListener("click", () => {
+                let id = project.getAttribute("data-id");
+                projects.forEach((current,index) => {
+                    if(current.id == id) {
+                        projects.splice(index, 1);
+                    }
+                })
+                projects.forEach((current,index) => {
+                    current.setId = index;
+                })
+                project.remove();
+                renderPorjects();
+            })
+        })
+    }
+    
+    export function renderPorjectTasks() {
+        document.querySelectorAll("aside nav ul li").forEach(project => { 
+            project.addEventListener("click", () => {
             document.querySelectorAll("aside nav ul li").forEach(li => { 
                 li.classList.remove("selected");
+                project.classList.add("selected");
             });
-            project.classList.add("selected");
+            console.log(project);
             addNewTask(projects[id].tasks);
+        })
+    });
+    document.querySelectorAll("aside nav ul li").forEach(project => {
+        project.addEventListener("click", () => {
+            let id = project.getAttribute("data-id");
+            console.log(id);
         })
     });
 }
