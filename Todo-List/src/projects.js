@@ -1,4 +1,4 @@
-import { addNewTask} from "./task";
+import { addNewTask, renderTask, Task} from "./task";
 export let projects = [];
 class Project {
     constructor(name,id ,tasks = []) {
@@ -6,11 +6,18 @@ class Project {
         this.tasks = tasks;
         this.id = id;
     }
+
     set setId(newId) {
         this.id = newId;
     }
+    
+    pushNewTask(task) {
+        this.tasks.push(task);
+    }
 }
 
+
+//we got a problem in the clicking 
 
 export function addNewProject() {
     document.querySelector(".Add-Project").addEventListener("click", () => {
@@ -42,6 +49,7 @@ export function addNewProject() {
         renderPorjects();
     })
 })
+    renderPorjectTasks();
 }
 
 export function renderPorjects() {
@@ -61,6 +69,7 @@ export function renderPorjects() {
         })
         deleteProject();
         renderPorjectTasks();
+
     }
     
     export let deleteProject = function() {
@@ -88,14 +97,7 @@ export function renderPorjects() {
                 li.classList.remove("selected");
                 project.classList.add("selected");
             });
-            console.log(project);
-            addNewTask(projects[id].tasks);
         })
     });
-    document.querySelectorAll("aside nav ul li").forEach(project => {
-        project.addEventListener("click", () => {
-            let id = project.getAttribute("data-id");
-            console.log(id);
-        })
-    });
+    console.log("hi");
 }
