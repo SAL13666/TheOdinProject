@@ -67,6 +67,9 @@ export function renderPorjects() {
             li.setAttribute("data-id", project.id);
             projectContainer.appendChild(li);
         })
+        document.querySelector("main .add-task .add").addEventListener("click", () => {
+            console.log("hello");
+        });
         deleteProject();
         renderPorjectTasks();
 
@@ -97,7 +100,7 @@ export function renderPorjects() {
                 li.classList.remove("selected");
                 project.classList.add("selected");
             });
+
         })
     });
-    console.log("hi");
 }
