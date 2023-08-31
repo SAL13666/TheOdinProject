@@ -7,7 +7,7 @@ class Project {
         this.tasks = tasks;
         this.id = id;
     }
-
+    
     set setId(newId) {
         this.id = newId;
     }
@@ -16,14 +16,16 @@ class Project {
         this.tasks.push(task);
     }
 }
-
 projects[0] = new Project("All", 0);
 projects[1] = new Project("Today", 1);
 projects[2] = new Project("Week", 2);
 projects[3] = new Project("Complete", 3);
 
+
+
 document.querySelector("main .add-task .add").addEventListener("click", () => {
     getProjectId()
+    console.log(projects);
     addNewTask(projects[projectId].tasks);
 });
 
@@ -56,6 +58,7 @@ export function addNewProject() {
         projects.push(newProject);
         renderPorjects();
         renderPorjectTasks();
+        localStorage.projects = JSON.stringify(projects);
     })
 })
 }
@@ -98,6 +101,7 @@ export function renderPorjects() {
                 renderPorjects();
             })
         })
+        localStorage.projects = JSON.stringify(projects);
     }
 
     
@@ -125,3 +129,8 @@ function getProjectId() {
     });
 }
 
+
+if(window.localStorage.getItem("projects")) {
+    projects = JSON.parse(localStorage.getItem("projects"));
+    renderPorjects();
+}
