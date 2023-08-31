@@ -22,15 +22,20 @@ projects[2] = new Project("Week", 2);
 projects[3] = new Project("Complete", 3);
 
 
-
-document.querySelector("main .add-task .add").addEventListener("click", () => {
-    getProjectId()
-    console.log(projects);
-    addNewTask(projects[projectId].tasks);
+(function addNewTaskToDom() {
+    document.querySelector("main .add-task .add").addEventListener("click", () => {
+    getProjectId();
+    if(projectId)
+    {
+        addNewTask(projects[projectId].tasks);
+        localStorage.projects = JSON.stringify(projects);
+    }
 });
+})();
 
 export function addNewProject() {
     document.querySelector(".Add-Project").addEventListener("click", () => {
+        localStorage.projects = JSON.stringify(projects);
         let addForm = document.createElement("form");
         let overlay = document.createElement("div");
         overlay.classList.add("overlay");
@@ -82,7 +87,6 @@ export function renderPorjects() {
         })
         deleteProject();
         renderPorjectTasks();
-
     }
     
     export let deleteProject = function() {
@@ -98,10 +102,10 @@ export function renderPorjects() {
                     current.setId = index;
                 })
                 project.remove();
+                localStorage.projects = JSON.stringify(projects);
                 renderPorjects();
             })
         })
-        localStorage.projects = JSON.stringify(projects);
     }
 
     
@@ -112,7 +116,8 @@ export function renderPorjects() {
                 li.classList.remove("selected");
                 project.classList.add("selected");
             });
-            if(projects.length) {
+            getProjectId();
+            if(projectId) {
                 getProjectId();
                 renderTask(projects[projectId].tasks);
             }

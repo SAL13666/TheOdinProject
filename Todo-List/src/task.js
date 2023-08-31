@@ -14,7 +14,6 @@ export class Task {
     }
 }
 
-//export let tasks = [];
 
 export let renderTask = function(tasks) {
     let taskContainer = document.querySelector("main .container .tasks");
