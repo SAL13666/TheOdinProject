@@ -1,6 +1,6 @@
 import { addNewTask, renderTask, Task} from "./task";
 export let projects = [];
-let projectId;
+export let projectId;
 class Project {
     constructor(name,id ,tasks = []) {
         this.name = name;
@@ -23,23 +23,29 @@ projects[2] = new Project("Week", 2);
 projects[3] = new Project("Complete", 3);
 
 
+
+
 (function addNewTaskToProject() {
     document.querySelector("main .add-task .add").addEventListener("click", () => {
     getProjectId();
     if(projectId)
     {
         addNewTask(projects[projectId].tasks);
-        projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
-        localStorage.projects = JSON.stringify(projects);
+
     }
 });
 })();
 
-window.onload = () => {
-    if(projects[0].tasks) {
-        renderTask(projects[0].tasks);
-    }
-}
+// (function loadAllTasks() {
+//     window.onload = () => {
+//         let counter = 0;
+//         projects.forEach((project) => {
+//             counter+= project.tasks.length;
+//             renderTask(project.tasks);
+//             document.querySelector(".add-task h3 span").innerHTML = counter;
+//         })
+//     }
+// })();
 
 export function addNewProject() {
     document.querySelector(".Add-Project").addEventListener("click", () => {
@@ -111,8 +117,8 @@ export function renderPorjects() {
                     current.setId = index;
                 })
                 project.remove();
-                localStorage.projects = JSON.stringify(projects);
                 renderPorjects();
+                localStorage.projects = JSON.stringify(projects);
             })
         })
     }
@@ -128,13 +134,14 @@ export function renderPorjects() {
             getProjectId();
             if(projectId) {
                 getProjectId();
+                document.querySelector("main .container .tasks").innerHTML = "";
                 renderTask(projects[projectId].tasks);
             }
         })
     });
 }
 
-function getProjectId() {
+export function getProjectId() {
     document.querySelectorAll("aside nav ul li").forEach(project => { 
         if(project.classList.contains("selected"))
         {

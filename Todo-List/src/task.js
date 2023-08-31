@@ -1,5 +1,5 @@
 import { markBookAsRead, deleteTask, upDateTheTaskCounter, editTask} from "./task-options"
-import { projects } from "./projects";
+import { projects, projectId} from "./projects";
 export class Task {
     constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;
@@ -18,7 +18,6 @@ export class Task {
 
 export let renderTask = function(tasks) {
     let taskContainer = document.querySelector("main .container .tasks");
-    taskContainer.innerHTML = "";
     tasks.forEach(task => {
     let newTask = document.createElement("div");
     newTask.classList.add("task");
@@ -45,6 +44,8 @@ export let renderTask = function(tasks) {
     upDateTheTaskCounter(tasks);
     deleteTask(tasks);
     editTask(tasks);
+    projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
+    localStorage.projects = JSON.stringify(projects);
 }
 
 export let addNewTask = function(tasks) {
@@ -88,9 +89,12 @@ export let addNewTask = function(tasks) {
         let priority = document.forms[0].priority.value;
         let newTask = new Task(title, description, date, priority, tasks.length + 1);
         tasks.push(newTask);
+        document.querySelector("main .container .tasks").innerHTML = "";
         renderTask(tasks);
         document.forms[0].remove();
         document.querySelector(".overlay").remove();
+        projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
+        localStorage.projects = JSON.stringify(projects);
     })
 
 }

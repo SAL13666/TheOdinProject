@@ -1,4 +1,5 @@
 import {renderTask} from "./task";
+import { projects, projectId} from "./projects";
 import { pickPriority } from "./utility";
 export let markBookAsRead = function(tasks) {
     document.querySelectorAll("main .container .tasks .task").forEach(task => {
@@ -9,6 +10,7 @@ export let markBookAsRead = function(tasks) {
             } else {
                 tasks[id -1].status = 0;
             }
+            document.querySelector("main .container .tasks").innerHTML = "";
             renderTask(tasks);
         })
     })
@@ -25,6 +27,8 @@ export let deleteTask = function(tasks) {
             })
             task.remove();
             upDateTheTaskCounter(tasks);
+            projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
+            localStorage.projects = JSON.stringify(projects);
         })
     })
 }
@@ -73,13 +77,14 @@ export let editTask = function(tasks) {
         tasks[id].description = document.querySelector("textarea").value;
         tasks[id].dueDate = document.forms[0].date.value;
         tasks[id].priority = document.forms[0].priority.value;
+        document.querySelector("main .container .tasks").innerHTML = "";
         renderTask(tasks);
         document.forms[0].remove();
         document.querySelector(".overlay").remove(); 
     })
     })
 
-        })
+    })
 }
 
 export function upDateTheTaskCounter(tasks) {
