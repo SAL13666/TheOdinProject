@@ -35,6 +35,12 @@ projects[3] = new Project("Complete", 3);
 });
 })();
 
+window.onload = () => {
+    if(projects[0].tasks) {
+        renderTask(projects[0].tasks);
+    }
+}
+
 export function addNewProject() {
     document.querySelector(".Add-Project").addEventListener("click", () => {
         localStorage.projects = JSON.stringify(projects);
@@ -136,7 +142,6 @@ function getProjectId() {
         }
     });
 }
-
 
 if(window.localStorage.getItem("projects")) {
     projects = JSON.parse(localStorage.getItem("projects"));
