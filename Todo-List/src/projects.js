@@ -6,6 +6,7 @@ class Project {
         this.name = name;
         this.tasks = tasks;
         this.id = id;
+        this.stringTasks = "[]";
     }
     
     set setId(newId) {
@@ -22,12 +23,13 @@ projects[2] = new Project("Week", 2);
 projects[3] = new Project("Complete", 3);
 
 
-(function addNewTaskToDom() {
+(function addNewTaskToProject() {
     document.querySelector("main .add-task .add").addEventListener("click", () => {
     getProjectId();
     if(projectId)
     {
         addNewTask(projects[projectId].tasks);
+        projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
         localStorage.projects = JSON.stringify(projects);
     }
 });
@@ -85,6 +87,7 @@ export function renderPorjects() {
                 projectContainer.appendChild(li);
             }
         })
+
         deleteProject();
         renderPorjectTasks();
     }
@@ -137,5 +140,10 @@ function getProjectId() {
 
 if(window.localStorage.getItem("projects")) {
     projects = JSON.parse(localStorage.getItem("projects"));
+    projects.forEach(project => {
+        if(project.stringTasks) {
+            project.tasks = JSON.parse(project.stringTasks);
+        }
+    })
     renderPorjects();
 }

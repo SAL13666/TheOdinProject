@@ -1,4 +1,5 @@
 import { markBookAsRead, deleteTask, upDateTheTaskCounter, editTask} from "./task-options"
+import { projects } from "./projects";
 export class Task {
     constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;
@@ -89,7 +90,7 @@ export let addNewTask = function(tasks) {
         tasks.push(newTask);
         renderTask(tasks);
         document.forms[0].remove();
-        document.querySelector(".overlay").remove(); 
+        document.querySelector(".overlay").remove();
     })
 
 }
