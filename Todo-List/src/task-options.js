@@ -1,5 +1,5 @@
 import {renderTask} from "./task";
-import { projects, projectId} from "./projects";
+import { projects, projectId, saveAllChangeToLocal} from "./projects";
 import { pickPriority } from "./utility";
 export let markBookAsRead = function(tasks) {
     document.querySelectorAll("main .container .tasks .task").forEach(task => {
@@ -82,7 +82,6 @@ export let editTask = function(tasks) {
         document.querySelector(".overlay").remove(); 
     })
     })
-
     })
 }
 

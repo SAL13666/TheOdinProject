@@ -174,3 +174,18 @@ if(window.localStorage.getItem("projects")) {
 document.querySelectorAll("aside nav ul li")[0].addEventListener("click", () => { 
     loadAllTasks();
 });
+
+document.querySelectorAll("aside nav ul li")[3].addEventListener("click", () => { 
+    let counter = 0;
+    let CompleteTasks = [];
+    projects.forEach((project) => {
+        project.tasks.forEach(task => {
+            if(task.status == 1) {
+                counter+= 1;
+                CompleteTasks.push(task);
+            }
+        })
+    });
+    renderTask(CompleteTasks);
+    document.querySelector(".add-task h3 span").innerHTML = counter;
+});
