@@ -1,5 +1,5 @@
 import { markBookAsRead, deleteTask, upDateTheTaskCounter, editTask} from "./task-options"
-import { projects, projectId} from "./projects";
+import { projects, projectId, saveAllChangeToLocal} from "./projects";
 export class Task {
     constructor(title, description, dueDate, priority, id ,status = 0) {
         this.title = title;
@@ -44,8 +44,7 @@ export let renderTask = function(tasks) {
     upDateTheTaskCounter(tasks);
     deleteTask(tasks);
     editTask(tasks);
-    projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
-    localStorage.projects = JSON.stringify(projects);
+    saveAllChangeToLocal();
 }
 
 export let addNewTask = function(tasks) {
@@ -93,8 +92,7 @@ export let addNewTask = function(tasks) {
         renderTask(tasks);
         document.forms[0].remove();
         document.querySelector(".overlay").remove();
-        projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
-        localStorage.projects = JSON.stringify(projects);
+        saveAllChangeToLocal();
     })
 
 }

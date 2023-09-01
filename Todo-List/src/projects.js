@@ -31,21 +31,26 @@ projects[3] = new Project("Complete", 3);
     if(projectId)
     {
         addNewTask(projects[projectId].tasks);
-
     }
 });
 })();
 
-// (function loadAllTasks() {
-//     window.onload = () => {
-//         let counter = 0;
-//         projects.forEach((project) => {
-//             counter+= project.tasks.length;
-//             renderTask(project.tasks);
-//             document.querySelector(".add-task h3 span").innerHTML = counter;
-//         })
-//     }
-// })();
+function loadAllTasks() {
+    let counter = 0;
+    projects.forEach((project) => {
+        counter+= project.tasks.length;
+        renderTask(project.tasks);
+    });
+    document.querySelector(".add-task h3 span").innerHTML = counter;
+};
+
+(function () {
+    window.onload = () => {
+        loadAllTasks();
+    }
+})();
+
+
 
 export function addNewProject() {
     document.querySelector(".Add-Project").addEventListener("click", () => {
@@ -99,7 +104,6 @@ export function renderPorjects() {
                 projectContainer.appendChild(li);
             }
         })
-
         deleteProject();
         renderPorjectTasks();
     }
@@ -117,8 +121,8 @@ export function renderPorjects() {
                     current.setId = index;
                 })
                 project.remove();
-                renderPorjects();
                 localStorage.projects = JSON.stringify(projects);
+                renderPorjects();
             })
         })
     }
@@ -141,6 +145,13 @@ export function renderPorjects() {
     });
 }
 
+export function saveAllChangeToLocal() {
+    projects.forEach(project => {
+        project.stringTasks = JSON.stringify(project.tasks);
+    })
+    localStorage.projects = JSON.stringify(projects);
+}
+
 export function getProjectId() {
     document.querySelectorAll("aside nav ul li").forEach(project => { 
         if(project.classList.contains("selected"))
@@ -159,3 +170,7 @@ if(window.localStorage.getItem("projects")) {
     })
     renderPorjects();
 }
+
+document.querySelectorAll("aside nav ul li")[0].addEventListener("click", () => { 
+    loadAllTasks();
+});

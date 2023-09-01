@@ -27,8 +27,7 @@ export let deleteTask = function(tasks) {
             })
             task.remove();
             upDateTheTaskCounter(tasks);
-            projects[projectId].stringTasks = JSON.stringify(projects[projectId].tasks);
-            localStorage.projects = JSON.stringify(projects);
+            saveAllChangeToLocal();
         })
     })
 }
