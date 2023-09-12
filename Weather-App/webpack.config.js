@@ -18,24 +18,8 @@ module.exports = {
                 loader: "html-loader",
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        esModule: false
-                    }
-            }
-            },
-            {
-                test: /\.(png|jpg|gif)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192,
-                        },
-                    },
-                ],
+                test: /\.(svg|eot|woff2|ttf)$/,
+                loader: 'file-loader',
             },
             ],
         },
