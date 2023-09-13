@@ -4,11 +4,16 @@ body {
     padding: 0;
     color: white;
     background-size: cover;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 2.5fr 1fr;
+    min-height: 100vh;
 }
 
 
 .main-data {
     margin: 90px 80px;
+    grid-row: 1/2;
     display: flex;
     justify-content: space-between;
 }
@@ -90,4 +95,22 @@ body {
 
 .info-container .info h3 {
     margin: 10px 0px;
+}
+
+.forcast {
+    grid-row: 2/ -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.forcast .day-data {
+    flex-grow: 1;
+    min-height: 90%;
+}
+
+.forcast .day-data h3 {
+    font-size: 30px;
 }
