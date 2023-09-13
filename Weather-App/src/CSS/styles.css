@@ -67,3 +67,27 @@ body {
 .data-container .search svg {
     cursor: pointer;
 }
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container .info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.info-container .info svg {
+    font-size: 30px;
+}
+
+.info-container .info p {
+    margin: 0px;
+}
+
+.info-container .info h3 {
+    margin: 10px 0px;
+}
