@@ -3,4 +3,67 @@ body {
     margin: 0;
     padding: 0;
     color: white;
+    background-size: cover;
+}
+
+
+.main-data {
+    margin: 90px 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.data-container h1 {
+    text-transform: capitalize;
+    font-size: 45px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.data-container h4 {
+    font-size: 15px;
+    margin: 7px 0px;
+    font-weight: 400;
+}
+
+.data-container .location {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.data-container h2 {
+    font-size: 60px;
+    margin: 30px 0px 0px;
+}
+
+.data-container button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.data-container .search {
+    border-bottom: 2px solid white;
+    display: flex;
+    padding: 5px;
+}
+
+.data-container input {
+    flex-grow: 1;
+    background-color: transparent;
+    font-weight: bold;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+.data-container input[type="text"]::placeholder {
+    opacity: 1;
+}
+
+.data-container .search svg {
+    cursor: pointer;
 }
