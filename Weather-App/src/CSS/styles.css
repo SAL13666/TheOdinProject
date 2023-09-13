@@ -50,6 +50,10 @@ body {
     margin-bottom: 30px;
 }
 
+.data-container button:hover {
+    border: 1px solid white;
+}
+
 .data-container .search {
     border-bottom: 2px solid white;
     display: flex;
@@ -113,4 +117,12 @@ body {
 
 .forcast .day-data h3 {
     font-size: 30px;
+}
+
+.search button {
+    margin-bottom: 0px;
+}
+
+.search button:hover {
+    border: none;
 }
