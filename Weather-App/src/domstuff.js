@@ -1,4 +1,4 @@
-import { getCurrentWeatherFromApi, checkIfTheLocationValid, getForecastFromApi } from "./apiFunctions";
+import { getCurrentWeatherFromApi, checkIfTheLocationValid, getForecastFromApi, getDailyForecastFromApi} from "./apiFunctions";
 
 
 export async function searchForLocation() {
@@ -42,12 +42,19 @@ export async function searchForLocation() {
 
 async function renderTodayDataToDom(data, location) {
     let forecast = await getForecastFromApi(location);
+    let dailyForecast = await getDailyForecastFromApi(location);
     document.querySelector(".description").innerText = data.current.condition.text;
     document.querySelector(".Humidity").innerText = `${data.current.humidity} %`;
     document.querySelector(".wind-speed").innerText = `${data.current.wind_mph} mph`;
     document.querySelector(".chance-of-rain").innerText = `${forecast.forecast.forecastday[0].day.daily_chance_of_rain} %`;
     document.querySelector(".location").innerText = data.location.name;
     document.querySelector(".date").innerText = data.location.localtime;
+
+    document.querySelectorAll(".day-data").forEach((element, index) => {
+        element.querySelector(".day").innerText = dailyForecast.forecast.forecastday[index].date;
+        element.querySelector(".day").innerText = dailyForecast.forecast.forecastday[index].date;
+        element.querySelector(".day").innerText = dailyForecast.forecast.forecastday[index].date;
+    })
 }
 
 async function displayDataInF(location = "") {
@@ -55,13 +62,23 @@ async function displayDataInF(location = "") {
         location = document.querySelector(".location").innerText;
     }
     let data = await getCurrentWeatherFromApi(location);
+    let dailyForecast = await getDailyForecastFromApi(location);
     document.querySelector(".dgree").innerText = `${data.current.temp_f} °F`;
     document.querySelector(".feels-like").innerText = `${data.current.feelslike_f} °F`;
+    document.querySelectorAll(".day-data").forEach((element, index) => {
+        element.querySelector("h2").innerText = `${dailyForecast.forecast.forecastday[index].day.maxtemp_f} °F`;
+        element.querySelector("h4").innerText = `${dailyForecast.forecast.forecastday[index].day.mintemp_f} °F`;
+    })
 }
 
 async function displayDataInC() {
     let location = document.querySelector(".location").innerText;
     let data = await getCurrentWeatherFromApi(location);
+    let dailyForecast = await getDailyForecastFromApi(location);
     document.querySelector(".dgree").innerText = `${data.current.temp_c} °C`;
     document.querySelector(".feels-like").innerText = `${data.current.feelslike_c} °c`;
+    document.querySelectorAll(".day-data").forEach((element, index) => {
+        element.querySelector("h2").innerText = `${dailyForecast.forecast.forecastday[index].day.maxtemp_c} °F`;
+        element.querySelector("h4").innerText = `${dailyForecast.forecast.forecastday[index].day.mintemp_c} °F`;
+    })
 }

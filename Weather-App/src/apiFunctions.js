@@ -13,6 +13,12 @@ export async function getForecastFromApi(location) {
     return data;
 }
 
+export async function getDailyForecastFromApi(location) {
+    let myrequest = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=bb5470923bb74a46afe52441231209&q=${location}&days=7&aqi=no&alerts=no`, {mode: 'cors'});
+    let data = await myrequest.json();
+    return data;
+}
+
 
 export async function checkIfTheLocationValid(location) {
     let data = await getCurrentWeatherFromApi(location);
