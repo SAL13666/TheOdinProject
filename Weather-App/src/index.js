@@ -6,4 +6,3 @@ import '@fortawesome/fontawesome-free/js/brands'
 import { searchForLocation, changeTempDisplay } from "./domstuff"
 
 searchForLocation();
-changeTempDisplay();

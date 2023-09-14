@@ -11,12 +11,26 @@ export async function searchForLocation() {
         if(await checkIfTheLocationValid(searchFieldValue)) {
             let data = await getCurrentWeatherFromApi(searchFieldValue);
             console.log(data);
-            changeTempDisplay(data);
             renderTodayDataToDom(data, searchFieldValue);
         }
         searchField.value = "";
     });
 }
+
+
+(() => {
+    document.querySelector(".display").addEventListener("click", () => {
+        if(document.querySelector(".display").classList.contains("F")) {
+            document.querySelector(".display").innerText = "Display °C";
+            displayDataInF();
+        } else if (document.querySelector(".display").classList.contains("C")) {
+            document.querySelector(".display").innerText = "Display °F";
+            displayDataInC()
+        }
+    document.querySelector(".display").classList.toggle("F");
+    document.querySelector(".display").classList.toggle("C");
+    })
+})();
 
 
 
@@ -30,29 +44,16 @@ async function renderTodayDataToDom(data, location) {
     document.querySelector(".date").innerText = data.location.localtime;
 }
 
-
-export function changeTempDisplay(data) {
-    document.querySelector(".display").addEventListener("click", () => {
-        document.querySelector(".display").classList.toggle("F");
-        document.querySelector(".display").classList.toggle("C");
-        if(document.querySelector(".display").classList.contains("F")) {
-            document.querySelector(".display").innerText = "Display °C";
-            displayDataInF(data);
-        } else if (document.querySelector(".display").classList.contains("C")) {
-            document.querySelector(".display").innerText = "Display °F";
-            displayDataInC(data)
-        }
-    })
-}
-
-
-function displayDataInF(data) {
+async function displayDataInF() {
+    let location = document.querySelector(".location").innerText;
+    let data = await getCurrentWeatherFromApi(location);
     document.querySelector(".dgree").innerText = `${data.current.temp_f} °F`;
     document.querySelector(".feels-like").innerText = `${data.current.feelslike_f} °F`;
 }
 
-function displayDataInC(data) {
-    // document.querySelector(".dgree").innerText = `${data.current.temp_c} °C`;
-    // document.querySelector(".feels-like").innerText = `${data.current.feelslike_c} °c`;
-    console.log(data);
+async function displayDataInC() {
+    let location = document.querySelector(".location").innerText;
+    let data = await getCurrentWeatherFromApi(location);
+    document.querySelector(".dgree").innerText = `${data.current.temp_c} °C`;
+    document.querySelector(".feels-like").innerText = `${data.current.feelslike_c} °c`;
 }
