@@ -1,5 +1,6 @@
 import { getCurrentWeatherFromApi, checkIfTheLocationValid, getForecastFromApi } from "./apiFunctions";
 
+
 export async function searchForLocation() {
     let searchField = document.querySelector(".search input");
     let srearchButton = document.querySelector(".search-button");
@@ -10,8 +11,8 @@ export async function searchForLocation() {
         }
         if(await checkIfTheLocationValid(searchFieldValue)) {
             let data = await getCurrentWeatherFromApi(searchFieldValue);
-            console.log(data);
             renderTodayDataToDom(data, searchFieldValue);
+            displayDataInF(searchFieldValue);
         }
         searchField.value = "";
     });
@@ -29,9 +30,14 @@ export async function searchForLocation() {
         }
     document.querySelector(".display").classList.toggle("F");
     document.querySelector(".display").classList.toggle("C");
-    })
+})
 })();
 
+(async () => {
+    let data = await getCurrentWeatherFromApi("cairo");
+    renderTodayDataToDom(data, "cairo");
+    displayDataInF("cairo");
+})();
 
 
 async function renderTodayDataToDom(data, location) {
@@ -44,8 +50,10 @@ async function renderTodayDataToDom(data, location) {
     document.querySelector(".date").innerText = data.location.localtime;
 }
 
-async function displayDataInF() {
-    let location = document.querySelector(".location").innerText;
+async function displayDataInF(location = "") {
+    if(!location) {
+        location = document.querySelector(".location").innerText;
+    }
     let data = await getCurrentWeatherFromApi(location);
     document.querySelector(".dgree").innerText = `${data.current.temp_f} °F`;
     document.querySelector(".feels-like").innerText = `${data.current.feelslike_f} °F`;
