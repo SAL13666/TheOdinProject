@@ -1,5 +1,5 @@
 body {
-    background-image: url("./../imgs/digital-lavender-natural-landscape.jpg");
+    background-image: url("./../imgs/dayForest.jpg");
     margin: 0;
     padding: 0;
     color: white;
@@ -10,6 +10,9 @@ body {
     min-height: 100vh;
 }
 
+.night {
+    background-image: url("./../imgs/nightForest.jpg");
+}
 
 .main-data {
     margin: 90px 80px;

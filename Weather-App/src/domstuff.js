@@ -54,6 +54,7 @@ async function renderTodayDataToDom(data, location) {
     document.querySelectorAll(".day-data").forEach((element, index) => {
         element.querySelector(".day").innerText = getDayName(new Date(dailyForecast.forecast.forecastday[index].date));
     })
+    changeBackground(data);
 }
 
 async function displayDataInF(location = "") {
@@ -82,3 +83,10 @@ async function displayDataInC() {
     })
 }
 
+function changeBackground(data) {
+    if(!data.current.is_day) {
+        document.body.classList.add("night");
+    } else {
+        document.body.classList.remove("night");
+    }
+}
