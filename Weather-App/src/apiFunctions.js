@@ -2,19 +2,19 @@
 
 
 export async function getCurrentWeatherFromApi(location) {
-    let myrequest = await fetch(`http://api.weatherapi.com/v1/current.json?key=bb5470923bb74a46afe52441231209&q=${location}`, {mode: 'cors'});
+    let myrequest = await fetch(`http://api.weatherapi.com/v1/current.json?key=bb5470923bb74a46afe52441231209&q=${location}`, {mode: 'cors', referrerPolicy: "unsafe_url" });
     let data = await myrequest.json();
     return data;
 }
 
 export async function getForecastFromApi(location) {
-    let myrequest = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=bb5470923bb74a46afe52441231209&q=${location}`, {mode: 'cors'});
+    let myrequest = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=bb5470923bb74a46afe52441231209&q=${location}`, {mode: 'cors', referrerPolicy: "unsafe_url" });
     let data = await myrequest.json();
     return data;
 }
 
 export async function getDailyForecastFromApi(location) {
-    let myrequest = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=bb5470923bb74a46afe52441231209&q=${location}&days=7&aqi=no&alerts=no`, {mode: 'cors'});
+    let myrequest = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=bb5470923bb74a46afe52441231209&q=${location}&days=7&aqi=no&alerts=no`, {mode: 'cors', referrerPolicy: "unsafe_url" });
     let data = await myrequest.json();
     return data;
 }
