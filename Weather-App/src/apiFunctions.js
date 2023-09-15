@@ -1,4 +1,4 @@
-// api key bb5470923bb74a46afe52441231209
+
 
 
 export async function getCurrentWeatherFromApi(location) {
