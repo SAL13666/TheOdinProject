@@ -1,5 +1,5 @@
 import { getCurrentWeatherFromApi, checkIfTheLocationValid, getForecastFromApi, getDailyForecastFromApi} from "./apiFunctions";
-
+import { getDayName, getUserCurrenLocation } from "./utilities";
 
 export async function searchForLocation() {
     let searchField = document.querySelector(".search input");
@@ -35,8 +35,9 @@ export async function searchForLocation() {
 
 (async () => {
     let data = await getCurrentWeatherFromApi("cairo");
-    renderTodayDataToDom(data, "cairo");
-    displayDataInF("cairo");
+    let location = await getUserCurrenLocation();
+    renderTodayDataToDom(data, location);
+    displayDataInF(location);
 })();
 
 
@@ -51,9 +52,7 @@ async function renderTodayDataToDom(data, location) {
     document.querySelector(".date").innerText = data.location.localtime;
 
     document.querySelectorAll(".day-data").forEach((element, index) => {
-        element.querySelector(".day").innerText = dailyForecast.forecast.forecastday[index].date;
-        element.querySelector(".day").innerText = dailyForecast.forecast.forecastday[index].date;
-        element.querySelector(".day").innerText = dailyForecast.forecast.forecastday[index].date;
+        element.querySelector(".day").innerText = getDayName(new Date(dailyForecast.forecast.forecastday[index].date));
     })
 }
 
@@ -76,9 +75,10 @@ async function displayDataInC() {
     let data = await getCurrentWeatherFromApi(location);
     let dailyForecast = await getDailyForecastFromApi(location);
     document.querySelector(".dgree").innerText = `${data.current.temp_c} °C`;
-    document.querySelector(".feels-like").innerText = `${data.current.feelslike_c} °c`;
+    document.querySelector(".feels-like").innerText = `${data.current.feelslike_c} °C`;
     document.querySelectorAll(".day-data").forEach((element, index) => {
-        element.querySelector("h2").innerText = `${dailyForecast.forecast.forecastday[index].day.maxtemp_c} °F`;
-        element.querySelector("h4").innerText = `${dailyForecast.forecast.forecastday[index].day.mintemp_c} °F`;
+        element.querySelector("h2").innerText = `${dailyForecast.forecast.forecastday[index].day.maxtemp_c} °C`;
+        element.querySelector("h4").innerText = `${dailyForecast.forecast.forecastday[index].day.mintemp_c} °C`;
     })
 }
+
