@@ -34,8 +34,8 @@ export async function searchForLocation() {
 })();
 
 (async () => {
-    let data = await getCurrentWeatherFromApi("cairo");
     let location = await getUserCurrenLocation();
+    let data = await getCurrentWeatherFromApi(location);
     renderTodayDataToDom(data, location);
     displayDataInF(location);
 })();
