@@ -70,7 +70,8 @@ main .hero::after {
         margin: 20px;
     }
 
-    main .about-me .links {
+    main .about-me .links,
+    .contact-me .links {
         display: flex;
         gap: 20px;
         justify-content: center;
@@ -128,4 +129,29 @@ main .hero::after {
         font-size: 19px;
     }
 
+    .contact-me {
+        background-color: #0891b2;
+        color: white;
+        padding: 30px;
+    }
+
+    .contact-me h2 {
+        font-size: 60px;
+        font-weight: 500;
+    }
+
+    .contact-me p {
+        font-size: 30px;
+    }
+
+    .contact-me a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    .contact-me .links img {
+        width: 50px;
+        margin-top: 30px;
+    }
 }
