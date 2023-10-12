@@ -1,0 +1,81 @@
+:root {
+    --main-color: #0891b2;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+main .hero {
+    background-color: var(--main-color);
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 100%;
+    z-index: -2;
+}
+
+
+
+main .hero::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    border-left: 100vw solid transparent;
+    border-bottom: 70vw solid white;
+    z-index: -1;
+}
+
+@media (max-width: 500px) {
+    main .hero .image {
+        position: relative;
+        top: 30px;
+        display: grid;
+        place-items: center;
+    }
+    
+    main .hero img {
+        width: calc(100% - 50px);
+    }
+
+    main .hero h1 {
+        color: white;
+        font-weight: 500;
+        text-align: center;
+        position: absolute;
+        bottom: 0px;
+        margin: 0;
+        font-size: 85px;
+        z-index: 200;
+    }
+
+    main .about-me {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    main .about-me h2 {
+        font-size: 60px;
+        font-weight: 500;
+    }
+
+    main .about-me p {
+        font-size: 25px;
+        margin: 20px;
+    }
+
+    main .about-me .links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    main .about-me .links a {
+        width: 50px;
+    }
+
+}
