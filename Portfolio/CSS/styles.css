@@ -42,7 +42,7 @@ main .hero::after {
     }
 
     .project {
-        width: 80vw ;
+        width: 90vw ;
     }
 
     main .hero h1 {
@@ -101,7 +101,7 @@ main .hero::after {
 
     
     .project > img {
-        width: 80vw;
+        width: 90vw;
         grid-row: 1 / 2;
     }
 
@@ -120,7 +120,7 @@ main .hero::after {
         display: grid;
         justify-content: space-around;
         align-items: center;
-        grid-template-columns: 150px 100px;
+        grid-template-columns: 100px 100px;
     }
 
     .project-info h3 {
