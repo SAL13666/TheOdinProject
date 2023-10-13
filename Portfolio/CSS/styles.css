@@ -34,11 +34,15 @@ main .hero::after {
         top: 30px;
         display: grid;
         place-items: center;
+        width: calc(100% - 50px);
     }
     
-    main .hero img ,
+    main .hero img  {
+        width: 100%;
+    }
+
     .project {
-        width: calc(100% - 50px);
+        width: 80vw ;
     }
 
     main .hero h1 {
@@ -48,7 +52,7 @@ main .hero::after {
         position: absolute;
         bottom: 0px;
         margin: 0;
-        font-size: 85px;
+        font-size: 20vw;
         z-index: 200;
     }
 
@@ -97,7 +101,7 @@ main .hero::after {
 
     
     .project > img {
-        width: 100%;
+        width: 80vw;
         grid-row: 1 / 2;
     }
 
