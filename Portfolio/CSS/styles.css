@@ -111,7 +111,7 @@ main .about-me .links a {
     display: grid;
     grid-template-rows: 1fr 1fr;
     margin-bottom: 50px;
-    height: 500px;
+    min-height: 500px;
 }
 
 
@@ -150,6 +150,7 @@ main .about-me .links a {
 
 .contact-me {
     background-color: #0891b2;
+    
     color: white;
     padding: 30px;
 }
@@ -270,16 +271,14 @@ main .about-me .links a {
     }
 
     main .about-me {
-        position: absolute;
         display: block;
         background-color: white;
         display: flex;
         flex-direction: row;
-        top: 100px;
-        left: 50%;
+        margin: auto;
+        position: relative;
+        top: 50px;
         width: 80vw;
-        margin: 0px;
-        transform: translate(-50%);
         box-shadow: 3px 3px 10px #d2d2d2;
     }
 
