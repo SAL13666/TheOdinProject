@@ -39,7 +39,7 @@ function etchWithColor() {
 }
 
 // need to change it from click to move
-range.addEventListener("click", function() {
+range.addEventListener("change", function() {
     let gridLength = document.querySelector(".range input").value;
     document.querySelector(".range label").textContent = `${gridLength}X${gridLength}`
     document.querySelectorAll(".container div").forEach(function(div) {
