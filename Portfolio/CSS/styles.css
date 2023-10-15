@@ -111,7 +111,7 @@ main .about-me .links a {
     display: grid;
     grid-template-rows: 1fr 1fr;
     margin-bottom: 50px;
-    min-height: 500px;
+    height: 100%;
 }
 
 
