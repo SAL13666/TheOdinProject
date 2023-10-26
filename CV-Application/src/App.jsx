@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import Form from './components/Form'
-import FormOptions from './components/FormOptions'
+import Form from './components/Form/Form'
+import FormOptions from './components/Form/FormOptions'
+import CV from './components/CV/CV'
+
 function App() {
   const [basicInfo, setBasicInfo] = useState({
       name: "",
@@ -30,6 +32,12 @@ function App() {
       <button onClick={() => {
         console.log(basicInfo);
       }}>click</button>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <CV basicInfo={basicInfo}  education={education}  workExperience={workExperience}/>
     </>
   )
 }
