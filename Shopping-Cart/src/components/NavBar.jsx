@@ -34,6 +34,6 @@ function NavBar({white = false}) {
 }
 
 NavBar.propTypes = {
-    white: PropTypes.string,
+    white: PropTypes.bool,
 }
 export default NavBar;

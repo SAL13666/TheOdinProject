@@ -27,7 +27,7 @@ function Home() {
                 <h1 className={Styles.h1}>Raining Offers For Hot Summer!</h1>
                 <div className={Styles.buttonContainer}>
                     <h2 className={Styles.h2}>25% Off On All Products</h2>
-                    <Link to={"/shop"} className={Styles.a}>SHOP NOW</Link>
+                    <Link to={"/shop"} className={Styles.shopNow}>SHOP NOW</Link>
                 </div>
             </div>
         </section>
@@ -46,6 +46,29 @@ function Home() {
             <button onClick={() => slider?.current?.slickNext()} className={Styles.carouselOptions}>
                 <FontAwesomeIcon icon={faChevronRight} />
             </button>
+        </section>
+        <section className={Styles.shoppingCardsLinks}>
+            <div className={Styles.cardOne}>
+                <div className={Styles.info}>
+                    <h2>20% Off On Tank Tops</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
+                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                </div>
+            </div>
+            <div className={Styles.cardTwo}>
+                <div className={Styles.info}>
+                    <h2>Latest Eyewear For You</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
+                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                </div>
+            </div>
+            <div className={Styles.cardThree}>
+                <div className={Styles.info}>
+                    <h2>Let&apos;s Lorem Suit Up!</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
+                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                </div>
+            </div>
         </section>
         </>
     );

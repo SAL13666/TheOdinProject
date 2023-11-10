@@ -55,7 +55,7 @@
     width: fit-content;
 }
 
-.heroContent a {
+.shopNow {
     background-color: white;
     display: block;
     text-decoration: none;
@@ -65,16 +65,21 @@
     text-align: center;
     font-weight: 500;
     transition-duration: 0.2s;
+    z-index: 100;
 }
 
-.heroContent a:hover {
-    background-color: black;
-    color: white;
+.shopNow:hover {
+    background-color: black !important;
+    color: white !important;
+}
+
+.container {
+    width: 70%;
+    margin: 60px auto;
 }
 
 .carousel {
-    width: 60%;
-    margin: 60px auto;
+    composes: container;
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -96,4 +101,73 @@ img.carouselLogo {
 
 .slick {
     width: 100%;
+}
+
+.card {
+    padding: 40px;
+    color: white;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-size: cover;
+    background-position: top right;
+    position: relative;
+}
+
+.card::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.cardOne,
+.cardTwo,
+.cardThree {
+    composes: card;
+}
+
+.card h2 {
+    font-weight: bold;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.card .shopNow {
+    padding: 10px;
+    width: 50%;
+    font-weight: 400;
+}
+
+.info {
+    z-index: 100;
+}
+
+.cardOne {
+    background-image: url("https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/women-fashion-free-img.jpg");
+}
+
+.cardTwo {
+    background-image: url("https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/men-fashion-free-img.jpg");
+    background-position: center left;
+}
+
+.cardThree {
+    background-image: url("https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/footwear-free-img.jpg");
+}
+
+.shoppingCardsLinks {
+    composes: container;
+    display: flex;
+    gap: 10px;
 }
