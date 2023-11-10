@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
+import ItemCard from "../ItemCard";
 
 function Home() {
     const slider = useRef(null);
@@ -68,6 +69,21 @@ function Home() {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
                     <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
                 </div>
+            </div>
+        </section>
+        <section className={Styles.featuredProducts}>
+            <h2 className={Styles.title}>Featured Products</h2>
+            <div className={Styles.Cardscontainer}>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
             </div>
         </section>
         </>
