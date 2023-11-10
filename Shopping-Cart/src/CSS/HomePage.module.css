@@ -71,3 +71,29 @@
     background-color: black;
     color: white;
 }
+
+.carousel {
+    width: 60%;
+    margin: 60px auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.carouselOptions {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgba(238, 238, 238, .9);
+    font-size: 25px;
+    font-weight: 400;
+}
+
+img.carouselLogo {
+    height: 38px;
+    object-fit: contain;
+}
+
+.slick {
+    width: 100%;
+}
