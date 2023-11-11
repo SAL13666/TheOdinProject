@@ -85,7 +85,39 @@ function Home() {
                 <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
                 <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
             </div>
+            <section className={Styles.offer}>
+                <div className={Styles.info}>
+                    <h3>Limited Time Offer</h3>
+                    <h2>Special Edition</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                    <h3>Buy This T-shirt At 20% Discount, Use Code OFF20</h3>
+                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                </div>
+            </section>
+            <section className={Styles.features}>
+                <div className={Styles.feature}>
+                    <img src="https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/globe-free-img.png" alt="" />
+                    <h2>Worldwide Shipping</h2>
+                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+                <div className={Styles.feature}>
+                    <img src="https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/quality-free-img.png" alt="" />
+                    <h2>Best Quality</h2>
+                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+                <div className={Styles.feature}>
+                    <img src="https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/tag-free-img.png" alt="" />
+                    <h2>Best Offers</h2>
+                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+                <div className={Styles.feature}>
+                    <img src="https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/lock-free-img.png" alt="" />
+                    <h2>Secure Payments</h2>
+                    <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                </div>
+            </section>
         </section>
+
         </>
     );
 }
