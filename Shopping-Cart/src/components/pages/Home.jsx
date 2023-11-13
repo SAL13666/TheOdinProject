@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Styles from "../../CSS/HomePage.module.css"
-import "../../CSS/NavBarWhite.css"
 import "../../../node_modules/slick-carousel/slick/slick.css"; 
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";

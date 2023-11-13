@@ -11,7 +11,7 @@ function ItemCard({name, category, price, discount=false, img}) {
             <p className={styles.category}>{category}</p>
             <p className={styles.price}>{price}</p>
             <p className={styles.sale}>{(() => {
-                return discount ? <p>sale!</p> : null
+                return discount ? <span>sale!</span> : null
             })()}</p>
             <p>
                 <FontAwesomeIcon icon={faStar} className={styles.star}/>

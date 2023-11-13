@@ -11,6 +11,15 @@
     border-right: none;
 }
 
+footer a {
+    transition: color .2s linear;
+}
+
+
+svg {
+    transition: fill .2s linear;
+}
+
 .secondryFooter h2 a {
     text-decoration: none;
     color: black;
@@ -80,6 +89,8 @@
     color: white;
 }
 
+
+
 .mainFooter {
     border-top: 1px solid #dddddd;
     display: flex;
@@ -99,4 +110,9 @@
 
 .contactIcons svg:hover {
     fill: #0084d6;
+}
+
+footer h2 a:hover,
+footer .links a:hover {
+    color: #0084d6;
 }
