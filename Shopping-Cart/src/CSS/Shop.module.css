@@ -1,0 +1,7 @@
+.Cardscontainer {
+    margin: 50px 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    row-gap: 60px;
+}

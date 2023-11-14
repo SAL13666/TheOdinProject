@@ -9,7 +9,6 @@ function NavBar() {
     let location = useLocation();
     let logo = location.pathname === "/" ? <img className={NavBarWhite.logo} src="https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/logo1-free-img-140x47.png" alt="" /> 
     : <img className={NavBarWhite.logo} src="https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2018/12/favicon-free-img-120x120.png" alt="" />;
-    console.log(location)
     return (
         <header>
             <nav className={(() => {

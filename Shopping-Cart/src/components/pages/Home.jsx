@@ -9,7 +9,11 @@ import { useRef } from "react";
 import ItemCard from "../ItemCard";
 
 function Home() {
+    const product =  {"id":1,"title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}};
+
+
     const slider = useRef(null);
+
     const settings = {
         dots: false,
         infinite: true,
@@ -74,16 +78,14 @@ function Home() {
         <section className={Styles.featuredProducts}>
             <h2 className={Styles.title}>Featured Products</h2>
             <div className={Styles.Cardscontainer}>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
-                <ItemCard name={"DNK Yellow Shoes"} category={"Men"} price={"$120.00"} discount={true} img={"https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2021/03/sports-shoe3-300x300.jpg"}/>
+                <ItemCard product={product}/>
+                <ItemCard product={product}/>
+                <ItemCard product={product}/>
+                <ItemCard product={product}/>
+                <ItemCard product={product}/>
+                <ItemCard product={product}/>
+                <ItemCard product={product}/>
+                <ItemCard product={product}/>
             </div>
             <section className={Styles.offer}>
                 <div className={Styles.info}>
