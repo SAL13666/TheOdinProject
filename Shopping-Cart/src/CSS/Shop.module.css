@@ -121,9 +121,15 @@ h2 {
 }
 
 
+main {
+    background-color: white;
+    padding: 80px;
+}
 
-
-
+main a {
+    text-decoration: none;
+    color: #777;
+}
 
 
 .Cardscontainer {
@@ -133,5 +139,4 @@ h2 {
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     row-gap: 60px;
-    background-color: white;
 }

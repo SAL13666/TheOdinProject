@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react";
-import ItemCard from "../ItemCard";
+import { useContext, useEffect, useState } from "react";
 import styles from "../../CSS/Shop.module.css"
 import { Box, Slider, createTheme } from "@mui/material";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { ProductsContext } from "../../App";
+import { getPath } from "../../utilites";
+import AllProducts from "./AllProducts";
+
 function Shop() {
+    const allProducts = useContext(ProductsContext)
     const [FilterByPricevalue, setValue] = useState([0, 999.99]);
-    const [allProducts, setAllProducts] = useState([]);
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const params = useParams();
     const theme = createTheme({
         palette: {
             primary: {
@@ -18,20 +22,6 @@ function Shop() {
             },
         },
     });
-
-    function fetchData() {
-        fetch("https://fakestoreapi.com/products")
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            setAllProducts(data)
-        })
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, [])
 
     return (
         <>
@@ -96,10 +86,11 @@ function Shop() {
                         })}
                     </div>
                 </nav>
-                <main className={styles.Cardscontainer}>
-                    {allProducts.map((product) => {
-                        return <ItemCard product={product} key={product.id} />
-                    })}
+                <main>
+                    {getPath(params)}
+                    <div className={styles.Cardscontainer}>
+                        <Outlet />
+                    </div>
                 </main>
             </div>
         </>

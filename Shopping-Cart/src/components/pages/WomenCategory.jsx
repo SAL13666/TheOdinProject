@@ -2,15 +2,15 @@ import { useContext } from "react";
 import ItemCard from "../ItemCard";
 import { ProductsContext } from "../../App";
 
-function MenCategory() {
+function WomenCategory() {
     const allProducts = useContext(ProductsContext)
     return (
         <>
             {allProducts.map((product) => {
-                return product.category == "men's clothing" ? <ItemCard product={product} key={product.key}/>: null;
+                return product.category == "women's clothing" ? <ItemCard product={product} key={product.key}/>: null;
             }) }
         </>
     );
 }
 
-export default MenCategory;
+export default WomenCategory;

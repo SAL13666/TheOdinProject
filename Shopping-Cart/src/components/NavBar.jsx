@@ -22,7 +22,7 @@ function NavBar() {
             })()}>
                         {logo}
                     </Link>
-                    <Link to="/Shop" className={(() => {
+                    <Link to="/Shop/All" className={(() => {
                 return location.pathname === "/" ? NavBarWhite.link : NavBarBlack.link
             })()}>EVERYTHING</Link>
                 
