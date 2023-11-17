@@ -9,6 +9,7 @@ import MenCategory from "./components/pages/MenCategory";
 import WomenCategory from "./components/pages/WomenCategory";
 import Electronics from "./components/pages/Electronics";
 import Jewelery from "./components/pages/Jewelery";
+import PageDetails from "./components/pages/PageDetails";
 
 function Router() {
     const router = createBrowserRouter([
@@ -25,8 +26,8 @@ function Router() {
                     element: <Shop/>,
                     children: [
                         {
-                            path:"All",
                             index:true,
+                            path:"All",
                             element: <AllProducts/>,
                         },
                         {
@@ -55,6 +56,10 @@ function Router() {
                     path:"Contact",
                     element: <ContactUs />,
                 },
+                {
+                    path: ":Details",
+                    element: <PageDetails/>
+                }
             ]
         },
 

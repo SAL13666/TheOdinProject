@@ -2,10 +2,15 @@ import PropTypes from 'prop-types';
 import styles from "../CSS/Card.module.css"
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 
 function ItemCard({product}, discount) {
+    const navigate = useNavigate();
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={() => {
+            console.log(product.id);
+            navigate(`/${product.id - 1}`)
+        }}>
             <img src={product.image} alt={product.name} />
             <h2>{product.title}</h2>
             <p className={styles.category}>{product.category}</p>

@@ -8,7 +8,7 @@ function Footer() {
             <section className={Styles.secondryFooter}>
             <div className={Styles.sale}>
                 <h2>
-                <Link to={"shop"}>SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.</Link>
+                <Link to={"shop/All"}>SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.</Link>
             </h2>
             </div>
             <div className={Styles.categoriesLinks}>
