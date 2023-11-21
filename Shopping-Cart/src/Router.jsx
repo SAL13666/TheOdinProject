@@ -10,6 +10,9 @@ import WomenCategory from "./components/pages/WomenCategory";
 import Electronics from "./components/pages/Electronics";
 import Jewelery from "./components/pages/Jewelery";
 import PageDetails from "./components/pages/PageDetails";
+import Description from "./components/pages/Description";
+import AdditionalInformation from "./components/pages/AdditionalInformation";
+import Reviews from "./components/pages/Reviews";
 
 function Router() {
     const router = createBrowserRouter([
@@ -58,7 +61,22 @@ function Router() {
                 },
                 {
                     path: ":Details",
-                    element: <PageDetails/>
+                    element: <PageDetails/>,
+                    children: [
+                        {
+                            path:"Description",
+                            index:true,
+                            element: <Description/>
+                        },
+                        {
+                            path: "AdditionalInformation",
+                            element: <AdditionalInformation/>
+                        },
+                        {
+                            path: "Reviews",
+                            element: <Reviews/>
+                        },
+                    ]
                 }
             ]
         },

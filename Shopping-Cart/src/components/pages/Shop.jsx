@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import styles from "../../CSS/Shop.module.css"
 import { Box, Slider, createTheme } from "@mui/material";
 import { Link, Outlet, useParams } from "react-router-dom";
@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { ProductsContext } from "../../App";
 import { getPath } from "../../utilites";
-import AllProducts from "./AllProducts";
 
 function Shop() {
     const allProducts = useContext(ProductsContext)
