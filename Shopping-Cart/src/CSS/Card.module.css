@@ -32,3 +32,20 @@
 .star {
     font-size: .85rem;
 }
+
+.addToCart {
+    color: black;
+    position: absolute;
+    font-size: 25px;
+    background-color: white;
+    padding: 6px;
+    border-radius: 50%;
+    top: 5%;
+    left: 80%;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.card:hover .addToCart {
+    opacity: 1;
+}

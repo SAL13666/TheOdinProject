@@ -36,8 +36,7 @@ function PageDetails() {
                     <h3>${product.price}</h3>
                     <input type="number" name="quantity" placeholder="0" min={1} step={1} defaultValue={1} ref={quantity}/>
                     <button type="submit" onClick={() => {
-                        addItemToCart(product, cartValue, quantity, setCartValue);
-                        console.log(cartValue)
+                        addItemToCart(product, cartValue, quantity.current.value, setCartValue);
                     }}>Add to cart</button>
                 </form>
             </div>

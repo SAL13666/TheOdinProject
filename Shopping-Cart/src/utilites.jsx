@@ -11,7 +11,7 @@ export function getPath(params) {
 export function getTotal(cart) {
     let total = 0;
     for(let i = 0; i < cart.length; i++) {
-        total += cart[i].price;
+        total += Math.ceil(cart[i].price * cart[i].quantity);
     }
     return total;
 }
@@ -25,7 +25,7 @@ export function getQuantity(cart) {
 }
 
 
-export function addItemToCart(product, cartValue, quantity, setCartValue) {
+export function addItemToCart(product, cartValue, quantity , setCartValue) {
     let doesExist = false;
     let index = 0;
     for(let i = 0; i < cartValue.length; i++) {
@@ -42,7 +42,7 @@ export function addItemToCart(product, cartValue, quantity, setCartValue) {
     if(doesExist) {
         setCartValue((prev) => {
             let newValue = [...prev];
-            newValue[index].quantity += parseInt(quantity.current.value);
+            newValue[index].quantity += parseInt(quantity);
             return newValue;
         })
     }
@@ -50,8 +50,8 @@ export function addItemToCart(product, cartValue, quantity, setCartValue) {
         setCartValue((prev) => {
             return [...prev, {
                 id: product.id,
-                quantity: parseInt(quantity.current.value),
-                price: Math.ceil(product.price * quantity.current.value),
+                quantity: parseInt(quantity),
+                price: product.price,
             }]
         })
         return;
