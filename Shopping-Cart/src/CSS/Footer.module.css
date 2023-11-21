@@ -3,6 +3,12 @@
     font-weight: bold;
 }
 
+.sale {
+    padding: 50px 160px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+
 footer a {
     transition: color .2s linear;
 }

@@ -1,9 +1,13 @@
 body {
     background-color: #f5f7f9;
 }
-.details {
+
+.container {
     max-width: 1240px;
     margin: 50px auto;
+}
+
+.details {
     display: flex;
     max-height: fit-content;
     gap: 30px;
@@ -136,4 +140,37 @@ body {
     margin-left: 40px;
     font-weight: bold;
     font-size: 18px;
+}
+
+.detailsNav {
+    border-top: 1px solid #dddddd;
+    margin-top: 30px;
+}
+
+.detailsNav > a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 0px;
+    color: #6b6a6b;
+    margin-left: 20px;
+    font-weight: bold;
+    margin-bottom: 1000px;
+}
+
+.detailsNav a:first-child {
+    margin-left: 0px;
+}
+
+.detailsNav .active {
+    position: relative;
+}
+
+.detailsNav .active::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    height: 3px;
 }
