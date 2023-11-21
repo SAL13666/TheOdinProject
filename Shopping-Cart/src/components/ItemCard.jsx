@@ -4,7 +4,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 
-function ItemCard({product}, discount) {
+function ItemCard({product}) {
     const navigate = useNavigate();
     return (
         <div className={styles.card} onClick={() => {
@@ -15,9 +15,6 @@ function ItemCard({product}, discount) {
             <h2>{product.title}</h2>
             <p className={styles.category}>{product.category}</p>
             <p className={styles.price}>${product.price}</p>
-            <p className={styles.sale}>{(() => {
-                return discount ? <span>sale!</span> : null
-            })()}</p>
             <p>
                 <FontAwesomeIcon icon={faStar} className={styles.star}/>
                 <FontAwesomeIcon icon={faStar} className={styles.star}/>

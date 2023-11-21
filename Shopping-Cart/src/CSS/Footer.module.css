@@ -3,14 +3,6 @@
     font-weight: bold;
 }
 
-.sale {
-    padding: 30px 150px;
-    border: 1px solid #dddddd;
-    width: 100%;
-    border-left: none;
-    border-right: none;
-}
-
 footer a {
     transition: color .2s linear;
 }

@@ -8,13 +8,6 @@ export function getPath(params) {
     return path;
 }
 
-//       itemCount: 0,
-//   total: 0,
-
-// export function addToCart(cart,setCart) {
-
-// }
-
 export function getTotal(cart) {
     let total = 0;
     for(let i = 0; i < cart.length; i++) {
@@ -48,7 +41,6 @@ export function addItemToCart(product, cartValue, quantity, setCartValue) {
     console.log(doesExist);
     if(doesExist) {
         setCartValue((prev) => {
-            console.log("a7a")
             let newValue = [...prev];
             newValue[index].quantity += parseInt(quantity.current.value);
             return newValue;
@@ -56,7 +48,6 @@ export function addItemToCart(product, cartValue, quantity, setCartValue) {
     }
     else {
         setCartValue((prev) => {
-            console.log("no");
             return [...prev, {
                 id: product.id,
                 quantity: parseInt(quantity.current.value),

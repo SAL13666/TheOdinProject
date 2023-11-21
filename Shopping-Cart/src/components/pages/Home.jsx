@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Styles from "../../CSS/HomePage.module.css"
 import "../../../node_modules/slick-carousel/slick/slick.css"; 
 import "../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import ItemCard from "../ItemCard";
+import { ProductsContext } from "../../App";
 
 function Home() {
-    const product =  {"id":1,"title":"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops","price":109.95,"description":"Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday","category":"men's clothing","image":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg","rating":{"rate":3.9,"count":120}};
-
-
+    const products = useContext(ProductsContext)
     const slider = useRef(null);
 
     const settings = {
@@ -32,7 +31,7 @@ function Home() {
                 <h1 className={Styles.h1}>Raining Offers For Hot Summer!</h1>
                 <div className={Styles.buttonContainer}>
                     <h2 className={Styles.h2}>25% Off On All Products</h2>
-                    <Link to={"/shop"} className={Styles.shopNow}>SHOP NOW</Link>
+                    <Link to={"/shop/ALL"} className={Styles.shopNow}>SHOP NOW</Link>
                 </div>
             </div>
         </section>
@@ -57,35 +56,33 @@ function Home() {
                 <div className={Styles.info}>
                     <h2>20% Off On Tank Tops</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
-                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                    <Link to="Shop/ALL" className={Styles.shopNow}>SHOP NOW</Link>
                 </div>
             </div>
             <div className={Styles.cardTwo}>
                 <div className={Styles.info}>
                     <h2>Latest Eyewear For You</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
-                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                    <Link to="Shop/ALL" className={Styles.shopNow}>SHOP NOW</Link>
                 </div>
             </div>
             <div className={Styles.cardThree}>
                 <div className={Styles.info}>
                     <h2>Let&apos;s Lorem Suit Up!</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
-                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                    <Link to="Shop/ALL" className={Styles.shopNow}>SHOP NOW</Link>
                 </div>
             </div>
         </section>
         <section className={Styles.featuredProducts}>
             <h2 className={Styles.title}>Featured Products</h2>
             <div className={Styles.Cardscontainer}>
-                <ItemCard product={product}/>
-                <ItemCard product={product}/>
-                <ItemCard product={product}/>
-                <ItemCard product={product}/>
-                <ItemCard product={product}/>
-                <ItemCard product={product}/>
-                <ItemCard product={product}/>
-                <ItemCard product={product}/>
+                {products.map((product, index) => {
+                    if(index > 10) {
+                        return;
+                    }
+                    return <ItemCard product={product} key={product.id}/>
+                })}
             </div>
             <section className={Styles.offer}>
                 <div className={Styles.info}>
@@ -93,7 +90,7 @@ function Home() {
                     <h2>Special Edition</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
                     <h3>Buy This T-shirt At 20% Discount, Use Code OFF20</h3>
-                    <Link to="Shop" className={Styles.shopNow}>SHOP NOW</Link>
+                    <Link to="Shop/All" className={Styles.shopNow}>SHOP NOW</Link>
                 </div>
             </section>
             <section className={Styles.features}>
