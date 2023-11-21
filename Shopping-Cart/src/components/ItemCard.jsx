@@ -13,7 +13,7 @@ function ItemCard({product}) {
     return (
         <div className={styles.card} onClick={() => {
             console.log(product.id);
-            navigate(`/${product.id - 1}`)
+            navigate(`/${product.id - 1}/Description`)
         }}>
             <img src={product.image} alt={product.name} />
             <h2>{product.title}</h2>
