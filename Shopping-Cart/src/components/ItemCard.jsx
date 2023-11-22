@@ -12,7 +12,6 @@ function ItemCard({product}) {
     const [cartValue, setCartValue] = useContext(cart)
     return (
         <div className={styles.card} onClick={() => {
-            console.log(product.id);
             navigate(`/${product.id - 1}/Description`)
         }}>
             <img src={product.image} alt={product.name} />

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ItemCard from "./components/ItemCard";
 
 export function getPath(params) {
     let path = [<Link to={"/"} key={0}>Home</Link>] 
@@ -29,16 +30,12 @@ export function addItemToCart(product, cartValue, quantity , setCartValue) {
     let doesExist = false;
     let index = 0;
     for(let i = 0; i < cartValue.length; i++) {
-        console.log("product", product.id);
-        console.log("cart", cartValue[i].id);
         if(cartValue[i].id == product.id) {
-            console.log("hello");
             doesExist = true;
             index = i;
             break;
         }
     }
-    console.log(doesExist);
     if(doesExist) {
         setCartValue((prev) => {
             let newValue = [...prev];
@@ -56,4 +53,18 @@ export function addItemToCart(product, cartValue, quantity , setCartValue) {
         })
         return;
     }
+}
+
+export function getCategorizedItems(allProducts, catagory) {
+    let counter = 0;
+    return allProducts.map((product) => {
+        if(counter >= 3) {
+            return;
+        }
+        if(product.category == catagory)
+        {
+            counter++;
+            return <ItemCard product={product} key={product.id}/>;
+        }
+    })
 }

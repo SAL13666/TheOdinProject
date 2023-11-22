@@ -7,7 +7,7 @@ function Jewelery() {
     return (
         <>
             {allProducts.map((product) => {
-                return product.category == "jewelery" ? <ItemCard product={product} key={product.key}/>: null;
+                return product.category == "jewelery" ? <ItemCard product={product} key={product.id}/>: null;
             }) }
         </>
     );

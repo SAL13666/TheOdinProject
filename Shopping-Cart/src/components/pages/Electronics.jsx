@@ -7,7 +7,7 @@ function Electronics() {
     return (
         <>
             {allProducts.map((product) => {
-                return product.category == "electronics" ? <ItemCard product={product} key={product.key}/>: null;
+                return product.category == "electronics" ? <ItemCard product={product} key={product.id}/>: null;
             }) }
         </>
     );

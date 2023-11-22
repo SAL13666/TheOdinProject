@@ -7,7 +7,7 @@ function WomenCategory() {
     return (
         <>
             {allProducts.map((product) => {
-                return product.category == "women's clothing" ? <ItemCard product={product} key={product.key}/>: null;
+                return product.category == "women's clothing" ? <ItemCard product={product} key={product.id}/>: null;
             }) }
         </>
     );

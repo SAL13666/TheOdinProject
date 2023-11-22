@@ -1,18 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { ProductsContext } from "../../App";
-import ItemCard from "../ItemCard";
 import styles from "../../CSS/Description.module.css"
+import { getCategorizedItems } from "../../utilites";
 
 function Description() {
     let params = useParams();
     const allProducts = useContext(ProductsContext);
-    const [category, setCategory] = useState();
-    console.log(params);
-    useEffect(() => {
-        console.log(category);
-        setCategory(allProducts[params.Details].category)
-    }, [params, allProducts])
+    const catagory = allProducts[params.Details].category;
     return (
         <div className={styles.itemInfo}>
             <h2>Product description</h2>
@@ -38,15 +33,7 @@ function Description() {
             </div>
             <h2>Related products</h2>
             <div className={styles.relatedProducts}>
-                {allProducts.map((product,index) => {
-                    if(index >= 3) {
-                        return;
-                    }
-                    if(product.category == category)
-                    {
-                        return <ItemCard product={product} key={product.id}/>;
-                    }
-                }) }
+                {getCategorizedItems(allProducts,catagory)}
             </div>
         </div>
     );
