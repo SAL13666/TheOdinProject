@@ -1,9 +1,12 @@
+import styles from "../../CSS/ContactUs.module.css";
 
 function ContactUs() {
     return (
-        <div>
-            <h1>Countact us</h1>
-        </div>
+        <>
+            <section className={styles.hero}>
+                <h1>Contact Us</h1>
+            </section>
+        </>
     );
 }
 
