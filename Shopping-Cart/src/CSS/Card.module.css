@@ -28,9 +28,12 @@
     font-size: .85em;
 }
 
-
 .star {
     font-size: .85rem;
+}
+
+svg {
+    margin: 0 !important;
 }
 
 .addToCart {
