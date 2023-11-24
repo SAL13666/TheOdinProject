@@ -30,3 +30,127 @@
     z-index: 999;
     font-family: 'Lato', sans-serif;
 }
+
+main {
+    font-family: 'Lato', sans-serif;
+    background-color: #f5f7f9;
+}
+
+main .container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+main .container .contactInfo h3 {
+    font-weight: 500;
+}
+
+main .container .contactInfo h2 {
+    font-weight: 600;
+    font-size: 2.625rem;
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+main .container .contactInfo h2::after {
+    content: "";
+    width: 15%;
+    height: 1px;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    position: absolute;
+}
+
+
+.cardContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.card {
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    border: 1px solid #00000012;
+    transition: box-shadow 0.2s linear;
+}
+
+.card:hover {
+    box-shadow: 0 15px 15px -10px rgba(0, 0, 0, .15);
+}
+
+.card h3 {
+    font-size: 1.625rem;
+    margin-bottom: 10px;
+}
+
+.card p:first-of-type {
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.card p:last-of-type {
+    color: #339cde;
+    font-size: 18px;
+}
+
+.contactForm {
+    display: flex;
+    text-align: start;
+    gap: 20px;
+    align-items: center;
+}
+
+.contactForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formDetails {
+    width: fit-content;
+}
+
+.contactForm .formDetails h3 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.contactForm .formDetails p {
+    color: #333333;
+}
+
+.contactForm form {
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0 15px 15px -10px rgba(0, 0, 0, .15);
+}
+
+form input,
+form textarea {
+    border: none;
+    border: 1px solid  #e2e2e2;
+    padding: 10px;
+}
+
+form textarea {
+    height: 220px;
+    width: 500px;
+}
+
+form input:user-invalid,
+form textarea:user-invalid {
+    border-color: red;
+}
+
+form button {
+    width: fit-content;
+    padding: 12px 18px;
+    font-size: 17px;
+}

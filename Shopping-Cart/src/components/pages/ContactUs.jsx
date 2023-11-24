@@ -34,17 +34,20 @@ function ContactUs() {
                             </div>
                         </div>
                     </section>
-                    <section>
+                    <section className={styles.contactForm}>
                         <div className={styles.formDetails}>
                             <h4>Don't be a stranger!</h4>
                             <h3>You tell us. We listen.</h3>
                             <p>Cras elementum finibus lacus nec lacinia. Quisque non convallis nisl, eu condimentum sem. Proin dignissim libero lacus, ut eleifend magna vehicula et. Nam mattis est sed tellus.</p>
                         </div>
-                        <form>
-                            <input type="text" placeholder="NAME" />
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                        }}>
+                            <input type="text" placeholder="NAME" required/>
                             <input type="text" placeholder="SUBJECT" />
-                            <input type="email" placeholder="EMAIL" />
-                            <textarea placeholder="MESSAGE" cols="30" rows="10"></textarea>
+                            <input type="email" placeholder="EMAIL" required/>
+                            <textarea placeholder="MESSAGE" cols="30" rows="10" required></textarea>
+                            <button type="Submit">Send Message</button>
                         </form>
                     </section>
                 </section>
