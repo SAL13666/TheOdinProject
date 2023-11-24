@@ -105,6 +105,7 @@ main .container .contactInfo h2::after {
     text-align: start;
     gap: 20px;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 .contactForm form {
