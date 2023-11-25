@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import styles from "../../CSS/ContactUs.module.css";
 
 function ContactUs() {
+    const navigate = useNavigate();
     return (
         <>
             <section className={styles.hero}>
@@ -42,6 +44,7 @@ function ContactUs() {
                         </div>
                         <form onSubmit={(e) => {
                             e.preventDefault();
+                            navigate("/")
                         }}>
                             <input type="text" placeholder="NAME" required/>
                             <input type="text" placeholder="SUBJECT" />
