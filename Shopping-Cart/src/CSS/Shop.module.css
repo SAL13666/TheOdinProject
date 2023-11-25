@@ -61,9 +61,6 @@ input[type=search]:focus {
     margin-top: 50px;
 }
 
-
-
-
 .priceFilterlabel {
     display: flex;
 }
@@ -83,9 +80,10 @@ input[type=search]:focus {
     justify-content: space-between;
 }
 
-h2 {
+.nav h2 {
     margin-bottom: 20px;
     font-weight: 400;
+    font-size: 25px;
 }
 
 .categories a {
@@ -116,8 +114,9 @@ h2 {
     font-weight: 400;
 }
 
-.product p {
+.product .stars {
     margin: 10px 0px;
+    width: 100%;
 }
 
 

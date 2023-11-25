@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import styles from "../CSS/Card.module.css"
-import { faShoppingBag, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import { addItemToCart } from '../utilites';
 import { cart } from '../App';
 import { useContext } from 'react';
+import { Rating } from '@mui/material';
 
 function ItemCard({product}) {
     const navigate = useNavigate();
@@ -22,13 +23,7 @@ function ItemCard({product}) {
                 e.stopPropagation()
                 addItemToCart(product, cartValue, 1, setCartValue);
             }}/>
-            <p>
-                <FontAwesomeIcon icon={faStar} className={styles.star}/>
-                <FontAwesomeIcon icon={faStar} className={styles.star}/>
-                <FontAwesomeIcon icon={faStar} className={styles.star}/>
-                <FontAwesomeIcon icon={faStar} className={styles.star}/>
-                <FontAwesomeIcon icon={faStar} className={styles.star}/>
-            </p>
+            <Rating name="half-rating" defaultValue={0} precision={0.5} />
         </div>
     );
 }

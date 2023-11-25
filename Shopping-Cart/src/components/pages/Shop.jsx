@@ -1,9 +1,7 @@
 import { useContext, useState } from "react";
 import styles from "../../CSS/Shop.module.css"
-import { Box, Slider, createTheme } from "@mui/material";
+import { Box, Rating, Slider, createTheme } from "@mui/material";
 import { Link, Outlet, useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { ProductsContext } from "../../App";
 import { getPath } from "../../utilites";
 
@@ -71,13 +69,8 @@ function Shop() {
                                     <img src={product.image} alt={product.title} />
                                     <div className="info">
                                         <h3>{product.title}</h3>
-                                        <p>
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                            <FontAwesomeIcon icon={faStar} />
-                                        </p>
+                                        <Rating name="read-only" value={5} readOnly className={styles.stars} />
+
                                         <span>${product.price}</span>
                                     </div>
                                 </div>

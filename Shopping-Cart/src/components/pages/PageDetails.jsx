@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
 import { ProductsContext, cart } from "../../App";
 import Styles from "../../CSS/PageDetails.module.css"
-import { addItemToCart } from "../../utilites";
+import { addItemToCart, getCategorizedItems } from "../../utilites";
 function PageDetails() {
     let params = useParams();
     let [cartValue,setCartValue] = useContext(cart);
@@ -10,6 +10,8 @@ function PageDetails() {
     const [product, setProduct] = useState();
     const [active, setActive] = useState(1)
     let quantity = useRef(0);
+    const allProducts = useContext(ProductsContext);
+    const catagory = allProducts[params.Details].category;
     useEffect(() => {
         setProduct(currentProduct);
     },[currentProduct])
@@ -55,6 +57,10 @@ function PageDetails() {
                     }}>Reviews</Link>
                 </nav>
                 <Outlet />
+                <h2>Related products</h2>
+                <div className={Styles.relatedProducts}>
+                    {getCategorizedItems(allProducts,catagory)}
+                </div>
         </div>
     );
 }

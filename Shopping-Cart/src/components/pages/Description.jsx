@@ -1,13 +1,5 @@
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
-import { ProductsContext } from "../../App";
 import styles from "../../CSS/Description.module.css"
-import { getCategorizedItems } from "../../utilites";
-
 function Description() {
-    let params = useParams();
-    const allProducts = useContext(ProductsContext);
-    const catagory = allProducts[params.Details].category;
     return (
         <div className={styles.itemInfo}>
             <h2>Product description</h2>
@@ -30,10 +22,6 @@ function Description() {
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
                 </div>
                 <img src="https://websitedemos.net/brandstore-02/wp-content/uploads/sites/150/2017/12/product-about-03.jpg" alt="product about 3" />
-            </div>
-            <h2>Related products</h2>
-            <div className={styles.relatedProducts}>
-                {getCategorizedItems(allProducts,catagory)}
             </div>
         </div>
     );
