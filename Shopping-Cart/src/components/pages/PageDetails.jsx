@@ -1,8 +1,10 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
 import { ProductsContext, cart } from "../../App";
 import Styles from "../../CSS/PageDetails.module.css"
 import { addItemToCart, getCategorizedItems } from "../../utilites";
+export let reviewsContext = createContext();
+
 function PageDetails() {
     let params = useParams();
     let [cartValue,setCartValue] = useContext(cart);
@@ -11,10 +13,20 @@ function PageDetails() {
     const [active, setActive] = useState(1)
     let quantity = useRef(0);
     const allProducts = useContext(ProductsContext);
-    const catagory = allProducts[params.Details].category;
+    const catagory = allProducts[params.Details]?.category;
     useEffect(() => {
         setProduct(currentProduct);
     },[currentProduct])
+
+    const [reviews, setReviews] = useState({});
+    useEffect(() => {
+        setReviews(localStorage.getItem("reviews"));
+    },[])
+
+    useEffect(() => {
+        localStorage.setItem("reviews",reviews)
+        console.log(localStorage.getItem("reviews"))
+    },[reviews])
 
     if(!product) {
         return (
@@ -56,7 +68,9 @@ function PageDetails() {
                         setActive(3);
                     }}>Reviews</Link>
                 </nav>
-                <Outlet />
+                <reviewsContext.Provider value={[reviews, setReviews]}>
+                    <Outlet />
+                </reviewsContext.Provider>
                 <h2>Related products</h2>
                 <div className={Styles.relatedProducts}>
                     {getCategorizedItems(allProducts,catagory)}
