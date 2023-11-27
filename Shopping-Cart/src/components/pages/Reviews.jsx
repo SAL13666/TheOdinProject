@@ -1,25 +1,27 @@
 import { Rating } from "@mui/material";
 import styles from "../../CSS/Reviews.module.css"
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { reviewsContext } from "./PageDetails";
 import { useParams } from "react-router-dom";
 function Reviews() {
     const [reviews, setReviews] = useContext(reviewsContext);
     let starRating = 0;
     let reviewText = useRef();
-    const [ProductId, setProductId] = useState(useParams().Details);
+    const [ProductId] = useState(useParams().Details);
     let name = useRef();
     let email = useRef();
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
-            const oldReviews = JSON.parse(reviews);
-            setReviews(JSON.stringify({...oldReviews,[ProductId]:{
+            const oldReviews = reviews ? JSON.parse(reviews) : {};
+            const reviewsArray = oldReviews[ProductId] ? oldReviews[ProductId] : [];
+            console.log(reviewsArray);
+            setReviews(JSON.stringify({...oldReviews, [ProductId]: [...reviewsArray, {
                 starRating,
                 "reviewText": reviewText.current.value,
                 "name": name.current.value,
                 "email": email.current.value,
-            } }))
+            }]}))
         }}>
             <p>Your email address will not be published. Required fields are marked *</p>
             <label htmlFor="Stars">Your rating * </label>

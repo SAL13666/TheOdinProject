@@ -24,7 +24,7 @@ function PageDetails() {
     },[])
 
     useEffect(() => {
-        localStorage.setItem("reviews",reviews)
+        localStorage.setItem("reviews",reviews ? reviews : JSON.stringify({}))
         console.log(localStorage.getItem("reviews"))
     },[reviews])
 
