@@ -25,13 +25,15 @@ function Reviews() {
                 }]}))
             }} className={styles.reviewForm}>
                 <p>Your email address will not be published. Required fields are marked *</p>
-                <label htmlFor="Stars">Your rating * </label>
-                <Rating name="half-rating" defaultValue={0} precision={0.5} onChange={(e) => {
-                    starRating = e.target.value;
-                    console.log(starRating)
-                }}/>
+                <label htmlFor="Stars" className={styles.rating}>
+                    Your rating * 
+                    <Rating name="half-rating" defaultValue={0} precision={0.5} onChange={(e) => {
+                        starRating = e.target.value;
+                        console.log(starRating)
+                    }}/>
+                </label>
                 <label htmlFor="Review">Your review *</label>
-                <textarea name="" id="Review" cols="3" ref={reviewText}></textarea>
+                <textarea name="" id="Review" ref={reviewText}></textarea>
                 <label htmlFor="Name">Name *</label>
                 <input type="text" id="Name" ref={name}/>
                 <label htmlFor="Email">Email *</label>

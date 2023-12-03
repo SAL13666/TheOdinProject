@@ -3,7 +3,7 @@ import { Link, Outlet, useParams } from "react-router-dom";
 import { ProductsContext, cart } from "../../App";
 import Styles from "../../CSS/PageDetails.module.css"
 import { addItemToCart, getCategorizedItems } from "../../utilites";
-export let reviewsContext = createContext();
+export const reviewsContext = createContext();
 
 function PageDetails() {
     let params = useParams();
