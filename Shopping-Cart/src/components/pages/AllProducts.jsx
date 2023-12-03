@@ -6,9 +6,9 @@ function AllProducts() {
     const allProducts = useContext(ProductsContext)
     return (
         <>
-            {allProducts.map((product) => {
+            {allProducts ?allProducts.map((product) => {
                 return <ItemCard product={product} key={product.id}/>
-            }) }
+            }) : null}
         </>
     );
 }

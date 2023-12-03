@@ -63,7 +63,7 @@ function Shop() {
                     </div>
                     <div className={styles.bestSellers}>
                     <h2>Our Best Sellers</h2>
-                        {allProducts.map((product,index) => {
+                        {allProducts ? allProducts.map((product,index) => {
                             if(index < 4) {
                                 return <div className={styles.product} key={product.id}>
                                     <img src={product.image} alt={product.title} />
@@ -75,7 +75,7 @@ function Shop() {
                                     </div>
                                 </div>
                             }
-                        })}
+                        }) : null}
                     </div>
                 </nav>
                 <main>

@@ -23,7 +23,7 @@ function ItemCard({product}) {
                 e.stopPropagation()
                 addItemToCart(product, cartValue, 1, setCartValue);
             }}/>
-            <Rating name="half-rating" defaultValue={0} precision={0.5} />
+            <Rating name="half-rating" defaultValue={5} readOnly />
         </div>
     );
 }

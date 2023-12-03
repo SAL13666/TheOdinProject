@@ -1,0 +1,33 @@
+.cartItem {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.cartItem img {
+    height: 100%;
+    width: 30%;
+    object-fit: contain;
+}
+
+.info {
+    margin-bottom: .33em;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info p {
+    font-weight: 500;
+}
+
+
+
+.delete {
+    margin-left: auto !important;
+    margin-right: 20px !important;
+    cursor: pointer;
+}

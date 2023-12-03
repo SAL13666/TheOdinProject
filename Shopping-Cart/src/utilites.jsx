@@ -55,6 +55,15 @@ export function addItemToCart(product, cartValue, quantity , setCartValue) {
     }
 }
 
+export function deleteItemFromCart(id, cart ,setCart) {
+    cart.map(item => {
+        if(item.id == id) {
+            const newCart = cart.filter(newitem => newitem.id !== id);
+            setCart(newCart);
+        }
+    })
+}
+
 export function getCategorizedItems(allProducts, catagory) {
     let counter = 0;
     return allProducts.map((product) => {
